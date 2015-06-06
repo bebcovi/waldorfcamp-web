@@ -34,10 +34,10 @@ But before paying you need to [register](https://docs.google.com/forms/d/1cQIyvf
 
 ## Accommodation
 
-The accommodation is organized in family apartments on the island. We are placed in several houses with bath and kitchen. The price per bed depends on the accommodation and is approximately 15 €. The accommodation should be booked by organizers, otherwise you will be not regarded as Waldorf camp participant. Tourist tax should be paid separately to the tourist office the very first day of the camp: 0,8 € per day per person older than 12 years.
+The accommodation is organized in family apartments on the island. We are placed in several houses with bath and kitchen. The price per bed depends on the accommodation and is approximately **15 €**. The accommodation should be booked by organizers, otherwise you will be not regarded as Waldorf camp participant. Tourist tax should be paid separately to the tourist office the very first day of the camp: **0,8 €** per day per person older than 12 years.
 
 ## Food
 
-Lunch (obligatory) is organized in the main Olib’s restaurant called "Zadruga" wich is also our meeting point. The price for lunch will be 7,4 € including soup, main dish, salad and dessert.
+Lunch (obligatory) is organized in the main Olib’s restaurant called "Zadruga" wich is also our meeting point. The price for lunch will be **7,4 €** including soup, main dish, salad and dessert.
 
 For kids born from 2008 to 2002 a discount is 20%, for children born after 2008 a discount is 50%. If you want to have a dinner as well it will cost you 6 € more. The everyday menu is suited for vegetarians also and there is an option for vegan food.
