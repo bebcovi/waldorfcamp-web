@@ -1,0 +1,7 @@
+linters:
+  "**/*.js":
+    - eslint
+    - jest --findRelatedTests
+
+ignore:
+  - "flow-typed/npm/**/*"

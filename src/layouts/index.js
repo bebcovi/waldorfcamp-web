@@ -1,35 +1,93 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+// @flow
+import * as React from 'react'
 import Helmet from 'react-helmet'
+import { ThemeProvider } from 'emotion-theming'
+import styled, { injectGlobal } from 'react-emotion'
+import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
+import { theme } from '../theme'
+import { modalRoot } from '../class-names'
+import type { NavigationLinks } from '../types'
+// $FlowFixMe
+import favicon from '../images/favicon.ico'
+import '../styles/fonts.css'
+import '../styles/reboot.css'
+import '../styles/minireset.css'
 
-import Header from '../components/Header'
-import './index.css'
+const Spacer = styled.div`
+  height: calc(${NAV_HEIGHT} + 0.25rem);
+`
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet
-      title="Gatsby Default Starter"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
-    </div>
-  </div>
-)
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+type Props = {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string,
+        tagline: string,
+        links: {
+          navigation: NavigationLinks,
+        },
+      },
+    },
+  },
+  children: () => React.Node,
 }
 
-export default TemplateWrapper
+const DefaultTemplate = ({ data, children }: Props) => {
+  const { title, tagline, links } = data.site.siteMetadata
+
+  // eslint-disable-next-line no-unused-expressions
+  injectGlobal`
+    html {
+      font-size: 16px;
+      line-height: 1.6;
+      ${theme.mq.sm} {
+        font-size: 18px;
+      }      
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+  `
+
+  return (
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <Helmet>
+          <title>{title}</title>
+          <meta charSet="utf-8" />
+          <meta name="description" content={tagline} />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="google-site-verification"
+            content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
+          />
+          <link rel="icon" href={favicon} />
+        </Helmet>
+        <Navigation links={links.navigation} />
+        <Spacer />
+        {children()}
+        <div className={modalRoot} />
+      </React.Fragment>
+    </ThemeProvider>
+  )
+}
+
+export const query = graphql`
+  query DefaultLayoutQuery {
+    site {
+      siteMetadata {
+        title
+        tagline
+        links {
+          navigation {
+            name
+            path
+          }
+        }
+      }
+    }
+  }
+`
+
+export default DefaultTemplate

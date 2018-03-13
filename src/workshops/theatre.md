@@ -1,0 +1,14 @@
+---
+path: /workshops/theatre
+title: Creative Theatre and Storytelling
+image:
+  id: 28418494_10160001530160082_402613778_o_pyhjga
+  width: 1400
+  height: 1200
+leaders:
+  - Marcus Violette
+cost: null
+active: false
+---
+
+Mask making, story creating, developing a character, movement and performance. Each child can choose their own character from classic fairy tale archetypes and nature, make their mask and we will bring all the characters together into an adventurous fairy tale which we will then perform.

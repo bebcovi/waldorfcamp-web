@@ -1,0 +1,14 @@
+---
+path: /workshops/music
+title: Chamber Music
+image:
+  id: 9678590595_dc7b8289f5_o_sjdgpr
+  width: 1024
+  height: 768
+leaders:
+  - Brigitta Soós
+cost: null
+active: true
+---
+
+Provide any musicians a new experience with the opportunity to expand their knowledge of chamber music by collaborating with friends old and new. The workshop is open to any instrumentalist or vocalist, amateur and professional musicians.Each ensemble---we will work in small groups---is coached daily, working on ideas, techniques and concepts that you can use to improve your playing year-round, so it will be a high level musical experience for anybody. There is a possibility to perform our work on the last day. Every group can choose his piece individually -- from the rennaissance, classical or folklore till contemporary music.
