@@ -17,6 +17,7 @@ const ButtonBase = styled.div`
   &:hover,
   &:focus {
     background: ${props => props.theme.colors.primaryDarker};
+    color: #fff;
   }
 
   ${props => props.theme.mq.sm} {
