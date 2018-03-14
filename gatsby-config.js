@@ -73,5 +73,6 @@ module.exports = {
         plugins: ['gatsby-remark-smartypants'],
       },
     },
+    'gatsby-plugin-netlify',
   ],
 }
