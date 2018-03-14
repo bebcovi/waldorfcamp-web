@@ -1,10 +1,15 @@
+// @flow
 import * as React from 'react'
+import Text from '../components/text'
 
 const NotFoundPage = () => (
-  <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
+  <Text>
+    <h1>Page Not Found</h1>
+    <p>
+      For whatever reason this page doesn't exist anymore, but it's likely that
+      the content still exists elsewhere on the site.
+    </p>
+  </Text>
 )
 
 export default NotFoundPage
