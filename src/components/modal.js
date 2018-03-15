@@ -22,6 +22,7 @@ const overlayClassName = css`
   bottom: 0;
   left: 0;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   background: ${transparentize(0.15, '#000')};
 `
 
