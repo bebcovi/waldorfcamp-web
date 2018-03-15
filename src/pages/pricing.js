@@ -67,16 +67,15 @@ class PricingPage extends React.Component<Props, State> {
     const { calculatorOpen } = this.state
     return (
       <Container>
-        {calculatorOpen ? (
-          <Modal
-            title="Calculate Your Cost"
-            onClose={() => {
-              this.setState({ calculatorOpen: false })
-            }}
-          >
-            <PriceCalculator price={price} days={durationInDays} />
-          </Modal>
-        ) : null}
+        <Modal
+          isOpen={calculatorOpen}
+          title="Calculate Your Cost"
+          onRequestClose={() => {
+            this.setState({ calculatorOpen: false })
+          }}
+        >
+          <PriceCalculator price={price} days={durationInDays} />
+        </Modal>
         <Text>
           <Heading>
             <h1>Pricing</h1>

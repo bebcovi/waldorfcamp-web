@@ -5,7 +5,6 @@ import { ThemeProvider } from 'emotion-theming'
 import styled, { injectGlobal } from 'react-emotion'
 import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
 import { theme } from '../theme'
-import { modalRoot } from '../class-names'
 import type { NavigationLinks } from '../types'
 // $FlowFixMe
 import favicon from '../images/favicon.ico'
@@ -67,7 +66,6 @@ const DefaultTemplate = ({ data, children }: Props) => {
         <Navigation links={links.navigation} />
         <Spacer />
         {children()}
-        <div className={modalRoot} />
       </React.Fragment>
     </ThemeProvider>
   )

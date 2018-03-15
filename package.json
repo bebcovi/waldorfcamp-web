@@ -39,6 +39,7 @@
     "react-dom": "^16.2.0",
     "react-emotion": "^9.0.2",
     "react-helmet": "^5.2.0",
+    "react-modal": "^3.3.2",
     "react-point": "^3.0.1",
     "react-scrolllock": "^2.0.1",
     "react-transition-group": "^2.2.1",
