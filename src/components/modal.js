@@ -1,4 +1,5 @@
 // @flow
+/* eslint-env browser */
 import * as React from 'react'
 import ReactModal from 'react-modal'
 import styled, { css } from 'react-emotion'
@@ -8,7 +9,10 @@ import * as Icon from '../components/icons'
 import { theme } from '../theme'
 import { z, EL } from '../utils/z'
 
-ReactModal.setAppElement('#___gatsby')
+// avoid breaking Gatsby's build
+if (ReactModal.setAppElement != null) {
+  ReactModal.setAppElement('#___gatsby')
+}
 
 const overlayClassName = css`
   position: fixed;
@@ -72,24 +76,25 @@ type Props = {
   onRequestClose: () => any,
 }
 
-const Modal = ({ title, children, ...props }: Props) => (
-  <ReactModal
-    {...props}
-    className={contentClassName}
-    overlayClassName={overlayClassName}
-    bodyOpenClassName={preventScrollClassName}
-    htmlOpenClassName={preventScrollClassName}
-  >
-    <Header>
-      <Close type="button" onClick={props.onRequestClose}>
-        <Icon.Close size={32} />
-      </Close>
-      <Text>
-        <Title>{title}</Title>
-      </Text>
-    </Header>
-    {children}
-  </ReactModal>
-)
+const Modal = ({ title, children, ...props }: Props) =>
+  ReactModal.setAppElement != null ? (
+    <ReactModal
+      {...props}
+      className={contentClassName}
+      overlayClassName={overlayClassName}
+      bodyOpenClassName={preventScrollClassName}
+      htmlOpenClassName={preventScrollClassName}
+    >
+      <Header>
+        <Close type="button" onClick={props.onRequestClose}>
+          <Icon.Close size={32} />
+        </Close>
+        <Text>
+          <Title>{title}</Title>
+        </Text>
+      </Header>
+      {children}
+    </ReactModal>
+  ) : null
 
 export default Modal

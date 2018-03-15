@@ -8,6 +8,15 @@
 
 const path = require('path')
 
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  if (stage === 'build-html') {
+    config.loader('null', {
+      test: /react-modal/,
+      loader: 'null-loader',
+    })
+  }
+}
+
 exports.modifyBabelrc = ({ babelrc }) => ({
   ...babelrc,
   presets: [...babelrc.presets, 'flow'],
