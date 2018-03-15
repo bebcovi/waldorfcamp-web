@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled, { css } from 'react-emotion'
 import { shade, transparentize } from 'polished'
-import { update, updateIn, setIn, removeIn } from 'immutable'
+import { updateIn, setIn, removeIn } from 'immutable'
 import { range } from 'lodash'
 import uuid from 'uuid'
 import * as Icon from '../components/icons'
@@ -123,6 +123,7 @@ type Props = {
   days: number,
 }
 type State = {
+  isNumberOfPeopleBlank: boolean,
   people: Array<{
     id: string,
     eatsDinner: boolean,
@@ -134,12 +135,13 @@ type State = {
 
 class PriceCalculator extends React.Component<Props, State> {
   state = {
+    isNumberOfPeopleBlank: false,
     people: [createPerson()],
   }
 
   render() {
     const { price, days } = this.props
-    const { people } = this.state
+    const { isNumberOfPeopleBlank, people } = this.state
 
     const participationFee: number = people.reduce(
       (total, { isChild, age }, i) => {
@@ -213,23 +215,27 @@ class PriceCalculator extends React.Component<Props, State> {
           <Field
             fullWidth
             type="number"
-            value={people.length}
+            value={isNumberOfPeopleBlank ? '' : people.length}
             data-test="people-count"
             onChange={event => {
-              const value = Number(event.target.value)
-              if (!Number.isNaN(value) && value >= 0) {
-                this.setState(state =>
-                  update(state, 'people', people => {
-                    if (value < people.length) {
-                      return people.slice(0, value)
-                    } else if (value > people.length) {
-                      return people.concat(
-                        range(value - people.length).map(createPerson),
-                      )
-                    }
-                    return people
-                  }),
-                )
+              const originalValue = event.target.value
+              const convertedValue = Number(originalValue)
+              if (!Number.isNaN(convertedValue) && convertedValue >= 0) {
+                this.setState(state => {
+                  let people = [...state.people]
+                  if (convertedValue < people.length) {
+                    people = people.slice(0, convertedValue)
+                  } else if (convertedValue > people.length) {
+                    people = people.concat(
+                      range(convertedValue - people.length).map(createPerson),
+                    )
+                  }
+                  return {
+                    ...state,
+                    isNumberOfPeopleBlank: originalValue === '',
+                    people,
+                  }
+                })
               }
             }}
           />
