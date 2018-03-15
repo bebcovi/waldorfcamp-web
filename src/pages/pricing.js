@@ -171,6 +171,10 @@ class PricingPage extends React.Component<Props, State> {
             <strong>{price.touristTax} €</strong> per day per person older than
             12 years.
           </p>
+          <p>
+            Accommodation needs to be paid directly to the landlord within the
+            first two days upon arriving to Olib!
+          </p>
           <h2>Food</h2>
           <p>
             Lunch is obligatory and is organized in the main Olib’s restaurant
