@@ -120,10 +120,9 @@ const Transfer = () => (
               Miatours
             </a>{' '}
             which is faster, but it cannot transfer cars, bikes are allowed with
-            the extra cost of about 2,5 €. On catamaran there is also a baggage
-            limit—one piece of baggage is allowed per person. It is desirable to
-            buy a ticket for the ferry or catamaran in advance, and if you are
-            interested in this possibility, please contact the organizers.
+            the extra cost 50 HRK (about 6.72 €). On catamaran there is also a
+            baggage limit—one piece of baggage is allowed per person. We
+            recommend buying a ticket for the ferry or catamaran in advance.
           </p>
         </Column>
       </Row>
