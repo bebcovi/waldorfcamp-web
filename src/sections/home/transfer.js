@@ -13,12 +13,12 @@ const SectionWithBg = styled(Section)`
   margin-top: 5rem;
   margin-bottom: -1rem;
   padding-top: 0;
-  padding-bottom: 5rem;
+  padding-bottom: 7rem;
   background: ${props => props.theme.colors.secondary};
   ${props => props.theme.fontSmoothing};
   ${props => props.theme.mq.sm} {
     padding-top: 0;
-    padding-bottom: 6rem;
+    padding-bottom: 7rem;
   }
 `
 
