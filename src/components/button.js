@@ -6,6 +6,7 @@ const ButtonBase = styled.div`
   background: ${props => props.theme.colors.primary};
   border-radius: 0.5rem;
   color: #fff;
+  white-space: nowrap;
   font-weight: bold;
   text-shadow: none;
   ${props => props.theme.fontSmoothing};
