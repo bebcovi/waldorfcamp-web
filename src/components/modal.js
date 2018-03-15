@@ -2,8 +2,9 @@
 /* eslint-env browser */
 import * as React from 'react'
 import { createPortal } from 'react-dom'
+import ScrollLock from 'react-scrolllock'
 import CSSTransition from 'react-transition-group/CSSTransition'
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 import { transparentize } from 'polished'
 import Text from '../components/text'
 import * as Icon from '../components/icons'
@@ -11,10 +12,6 @@ import { modalRoot } from '../class-names'
 import { z, EL } from '../utils/z'
 
 const TRANSITION_DURATION = 150
-
-const disableScroll = css`
-  overflow: hidden;
-`
 
 const BackDrop = styled.div`
   position: fixed;
@@ -83,30 +80,30 @@ type Props = {
 }
 
 class Modal extends React.Component<Props> {
-  rootEl = document.querySelector(`.${modalRoot}`)
-  containerEl = document.createElement('div')
+  _rootEl = document.querySelector(`.${modalRoot}`)
+  _containerEl = document.createElement('div')
+  _backDrop: ?HTMLDivElement
 
   componentDidMount() {
-    if (document.body != null) {
-      document.body.classList.add(disableScroll)
-    }
-    if (this.rootEl == null) throw new Error("Root element doesn't exist")
-    this.rootEl.appendChild(this.containerEl)
+    if (this._rootEl == null) throw new Error("Root element doesn't exist")
+    this._rootEl.appendChild(this._containerEl)
   }
 
   componentWillUnmount() {
-    if (document.body != null) {
-      document.body.classList.remove(disableScroll)
-    }
-    if (this.rootEl == null) throw new Error("Root element doesn't exist")
-    this.rootEl.removeChild(this.containerEl)
+    if (this._rootEl == null) throw new Error("Root element doesn't exist")
+    this._rootEl.removeChild(this._containerEl)
   }
 
   render() {
     const { title, children, onClose } = this.props
     return createPortal(
       <CSSTransition appear in timeout={TRANSITION_DURATION} classNames="fade">
-        <BackDrop onClick={onClose}>
+        <BackDrop
+          ref={node => {
+            this._backDrop = node
+          }}
+          onClick={onClose}
+        >
           <Container
             onClick={event => {
               event.stopPropagation()
@@ -122,9 +119,10 @@ class Modal extends React.Component<Props> {
             </Header>
             {children}
           </Container>
+          <ScrollLock touchScrollTarget={this._backDrop} />
         </BackDrop>
       </CSSTransition>,
-      this.containerEl,
+      this._containerEl,
     )
   }
 }
