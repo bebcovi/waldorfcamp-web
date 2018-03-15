@@ -6,13 +6,11 @@ image:
   width: 2048
   height: 1370
 leaders:
-  - Janko Marohnić
-  - Dorota Tomaszova
   - Daniel Torron Mack
 cost: null
 active: true
 ---
 
-In acroyoga you can be the **base** or you can **fly**! Janko, Dorota and Daniel will teach us how to do both roles of this magnificent activity.
+In acroyoga you can be the **base** or you can **fly**! Daniel will teach us how to do both roles of this magnificent activity.
 
 In the first part of this workshop we will practice some general physical movements. Then we will start practicing acrobatics from the basic exercises to more difficult ones, depending on how we feel and how well we prepare our bodies -- the muscles need to learn to be in tension at the right moment and to find the balance between different movements.
