@@ -32,6 +32,9 @@ export const theme = {
     primaryDarker: '#aa2e00',
     secondary: '#3498db',
     secondaryDarker: '#205d86',
+    info: '#AAAAAA',
+    warning: '#FF851B',
+    error: '#FF4136',
   },
   screenWidth: {
     xs: SCREEN_WIDTH.XS,

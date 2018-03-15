@@ -8,6 +8,8 @@ import uuid from 'uuid'
 import * as Icon from '../components/icons'
 import type { Price } from '../types'
 
+const MAX_NUMBER_OF_PEOPLE = 25
+
 const createPerson = () => ({
   id: uuid(),
   eatsDinner: false,
@@ -18,7 +20,8 @@ const createPerson = () => ({
 
 const Person = styled.div`
   position: relative;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   padding: 1rem 0.75rem 0.75rem;
   border: 1px dashed ${shade(0.7, '#fff')};
   border-radius: 0.25rem;
@@ -75,7 +78,12 @@ const blockLabel = css`
 `
 const Label = styled.label`
   ${props => (props.inline ? inlineLabel : blockLabel)};
-  &:last-child {
+  ${props =>
+    props.disabled
+      ? css`
+          opacity: 0.5;
+        `
+      : null} &:last-child {
     margin-bottom: 0;
   }
 `
@@ -85,12 +93,19 @@ const Field = styled.input`
   background: ${shade(0.85, '#fff')};
   border-radius: 0.25rem;
   ${props =>
-    props.fullWidth &&
-    css`
-      display: block;
-      width: 100%;
-      margin-top: 0.25rem;
-    `};
+    props.fullWidth
+      ? css`
+          display: block;
+          width: 100%;
+          margin-top: 0.25rem;
+        `
+      : null};
+`
+const ValidationMessage = styled.div`
+  height: 1.35rem;
+  line-height: 1.35rem;
+  font-size: 0.85rem;
+  color: ${props => props.theme.colors[props.type]};
 `
 
 const CostBreakdown = styled.ul`
@@ -122,8 +137,10 @@ type Props = {
   price: Price,
   days: number,
 }
+
 type State = {
   isNumberOfPeopleBlank: boolean,
+  exceededMaxPeople: boolean,
   people: Array<{
     id: string,
     eatsDinner: boolean,
@@ -136,12 +153,13 @@ type State = {
 class PriceCalculator extends React.Component<Props, State> {
   state = {
     isNumberOfPeopleBlank: false,
+    exceededMaxPeople: false,
     people: [createPerson()],
   }
 
   render() {
     const { price, days } = this.props
-    const { isNumberOfPeopleBlank, people } = this.state
+    const { isNumberOfPeopleBlank, exceededMaxPeople, people } = this.state
 
     const participationFee: number = people.reduce(
       (total, { isChild, age }, i) => {
@@ -221,27 +239,38 @@ class PriceCalculator extends React.Component<Props, State> {
               const originalValue = event.target.value
               const convertedValue = Number(originalValue)
               if (!Number.isNaN(convertedValue) && convertedValue >= 0) {
-                this.setState(state => {
-                  let people = [...state.people]
-                  if (convertedValue < people.length) {
-                    people = people.slice(0, convertedValue)
-                  } else if (convertedValue > people.length) {
-                    people = people.concat(
-                      range(convertedValue - people.length).map(createPerson),
-                    )
-                  }
-                  return {
-                    ...state,
-                    isNumberOfPeopleBlank: originalValue === '',
-                    people,
-                  }
-                })
+                this.setState(state => ({
+                  ...state,
+                  isNumberOfPeopleBlank: originalValue === '',
+                  exceededMaxPeople: originalValue > MAX_NUMBER_OF_PEOPLE,
+                  people:
+                    convertedValue > people.length
+                      ? people
+                          .concat(
+                            range(convertedValue - people.length).map(
+                              createPerson,
+                            ),
+                          )
+                          .slice(
+                            0,
+                            Math.min(convertedValue, MAX_NUMBER_OF_PEOPLE),
+                          )
+                      : people.slice(
+                          0,
+                          Math.min(convertedValue, MAX_NUMBER_OF_PEOPLE),
+                        ),
+                }))
               }
             }}
           />
+          <ValidationMessage type="warning">
+            {exceededMaxPeople
+              ? `Maximum number of people is ${MAX_NUMBER_OF_PEOPLE}.`
+              : null}
+          </ValidationMessage>
         </Label>
 
-        {people.map(({ id, eatsDinner, isChild, age, isAgeBlank }, i) => (
+        {people.map(({ id, isChild, eatsDinner, age, isAgeBlank }, i) => (
           <Person key={id} data-test="person">
             <PersonClose
               onClick={() => {
@@ -284,30 +313,29 @@ class PriceCalculator extends React.Component<Props, State> {
               <div>Will they eat dinner?</div>
             </Label>
 
-            {isChild ? (
-              <Label>
-                <div>Age</div>
-                <Field
-                  fullWidth
-                  type="number"
-                  value={isAgeBlank ? '' : age}
-                  data-test="person-age"
-                  onChange={event => {
-                    const originalValue = event.target.value
-                    const convertedValue = Number(originalValue)
-                    if (!Number.isNaN(convertedValue) && convertedValue >= 0) {
-                      this.setState(state =>
-                        updateIn(state, ['people', i], person => ({
-                          ...person,
-                          age: convertedValue,
-                          isAgeBlank: originalValue === '',
-                        })),
-                      )
-                    }
-                  }}
-                />
-              </Label>
-            ) : null}
+            <Label disabled={!isChild}>
+              <div>Age</div>
+              <Field
+                disabled={!isChild}
+                fullWidth
+                type="number"
+                value={isAgeBlank ? '' : age}
+                data-test="person-age"
+                onChange={event => {
+                  const originalValue = event.target.value
+                  const convertedValue = Number(originalValue)
+                  if (!Number.isNaN(convertedValue) && convertedValue >= 0) {
+                    this.setState(state =>
+                      updateIn(state, ['people', i], person => ({
+                        ...person,
+                        age: convertedValue,
+                        isAgeBlank: originalValue === '',
+                      })),
+                    )
+                  }
+                }}
+              />
+            </Label>
           </Person>
         ))}
 
