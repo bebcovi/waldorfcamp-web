@@ -24,12 +24,6 @@ const Lead = styled.p`
   }
 `
 
-const Note = styled.p`
-  margin-top: -0.25rem;
-  margin-left: 3.15rem;
-  opacity: 0.7;
-`
-
 const IconCalendar = styled(Icon.Calendar)`
   margin-right: 1rem;
 `
@@ -54,7 +48,11 @@ const WhenSection = ({ startDate, durationInDays }: Props) => {
             {from} to {to}, {year}
           </span>
         </Lead>
-        <Note>(from Sunday to Sunday)</Note>
+        <p>
+          That's two weeks, from Sunday to Sunday, and it is the{' '}
+          <strong>only</strong> option this year. We used to have more options,
+          but it was difficult to organize.
+        </p>
       </Container>
     </SectionBg>
   )
