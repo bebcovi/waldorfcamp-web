@@ -101,6 +101,7 @@ const Transfer = () => (
     />
     <Container>
       <h2>Transfer</h2>
+      <p>We strongly recommend buying traveling insurance!</p>
       <Row>
         <Column>
           <h3>Ferry</h3>
