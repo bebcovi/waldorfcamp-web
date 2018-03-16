@@ -41,9 +41,12 @@ const Title = styled.h1`
   margin: 0;
   font-family: ${props => props.theme.fontFamily.display};
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1.25;
   ${props => props.theme.textShadow};
+  ${props => props.theme.mq.sm} {
+    font-size: 3rem;
+  }
 `
 
 const TagLine = styled.p`
@@ -51,7 +54,7 @@ const TagLine = styled.p`
   margin: 0;
   margin-top: 1rem;
   font-family: ${props => props.theme.fontFamily.display};
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 1.25;
   ${props => props.theme.textShadow};
   ${props => props.theme.mq.sm} {
