@@ -1,31 +1,41 @@
 // @flow
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render, Simulate } from 'react-testing-library'
+import { ThemeProvider } from 'emotion-theming'
+import { theme } from '../theme'
 import PriceCalculator from './price-calculator'
 
 const { price } = require('../../gatsby-config').siteMetadata
 
+const renderWithTheme = element =>
+  render(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+
 describe('price calculator', () => {
-  let wrapper
-
-  beforeEach(() => {
-    wrapper = shallow(<PriceCalculator price={price} days={14} />)
-  })
-
   describe('participation fee', () => {
     it('applies discounts for children based on age and order', () => {
-      const countField = wrapper.find('[data-test="people-count"]')
-      countField.simulate('change', { target: { value: '5' } })
-      const isChildCheckboxes = wrapper.find('[data-test="person-is-child"]')
-      isChildCheckboxes.slice(1).forEach(checkbox => {
-        checkbox.simulate('change', { target: { checked: true } })
-      })
-      const ageFields = wrapper.find('[data-test="person-age"]')
-      ageFields.forEach((field, i) => {
-        field.simulate('change', { target: { value: ['4', '5', '6', '7'][i] } })
+      const { getByTestId, unmount } = renderWithTheme(
+        <PriceCalculator price={price} days={14} />,
+      )
+      const countField = getByTestId('people-count')
+      Simulate.change(countField, { target: { value: '5' } })
+      const peopleIndices = ['2', '3', '4', '5']
+      peopleIndices.forEach(index => {
+        const isChildCheckbox = getByTestId(`person-is-child-${index}`)
+        Simulate.change(isChildCheckbox, { target: { checked: true } })
+        const ageField = getByTestId(`person-age-${index}`)
+        Simulate.change(ageField, {
+          target: {
+            value: {
+              '2': '4',
+              '3': '5',
+              '4': '6',
+              '5': '7',
+            }[index],
+          },
+        })
       })
       const totalParticipationFee = Number(
-        wrapper.find('[data-test="total-participation-fee"]').text(),
+        getByTestId('total-participation-fee').textContent,
       )
       expect(totalParticipationFee).toBe(
         price.participationFee +
@@ -34,27 +44,31 @@ describe('price calculator', () => {
           price.participationFee * 0.6 +
           price.participationFee * 0.2,
       )
+      unmount()
     })
 
     it('applies discount for the 2nd twin', () => {
-      const countField = wrapper.find('[data-test="people-count"]')
-      countField.simulate('change', { target: { value: '3' } })
-      const isChildCheckboxes = wrapper.find('[data-test="person-is-child"]')
-      isChildCheckboxes.slice(1).forEach(checkbox => {
-        checkbox.simulate('change', { target: { checked: true } })
-      })
-      const ageFields = wrapper.find('[data-test="person-age"]')
-      ageFields.forEach(field => {
-        field.simulate('change', { target: { value: '6' } })
+      const { getByTestId, unmount } = renderWithTheme(
+        <PriceCalculator price={price} days={14} />,
+      )
+      const countField = getByTestId('people-count')
+      Simulate.change(countField, { target: { value: '3' } })
+      const peopleIndices = ['2', '3']
+      peopleIndices.forEach(index => {
+        const isChildCheckbox = getByTestId(`person-is-child-${index}`)
+        Simulate.change(isChildCheckbox, { target: { checked: true } })
+        const ageField = getByTestId(`person-age-${index}`)
+        Simulate.change(ageField, { target: { value: '6' } })
       })
       const totalParticipationFee = Number(
-        wrapper.find('[data-test="total-participation-fee"]').text(),
+        getByTestId('total-participation-fee').textContent,
       )
       expect(totalParticipationFee).toBe(
         price.participationFee +
           price.participationFee +
           price.participationFee * 0.8,
       )
+      unmount()
     })
   })
 })

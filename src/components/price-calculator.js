@@ -234,7 +234,7 @@ class PriceCalculator extends React.Component<Props, State> {
             fullWidth
             type="number"
             value={isNumberOfPeopleBlank ? '' : people.length}
-            data-test="people-count"
+            data-testid="people-count"
             onChange={event => {
               const originalValue = event.target.value
               const convertedValue = Number(originalValue)
@@ -271,7 +271,7 @@ class PriceCalculator extends React.Component<Props, State> {
         </Label>
 
         {people.map(({ id, isChild, eatsDinner, age, isAgeBlank }, i) => (
-          <Person key={id} data-test="person">
+          <Person key={id} data-testid={`person-${i + 1}`}>
             <PersonClose
               onClick={() => {
                 this.setState(state => removeIn(state, ['people', i]))
@@ -287,7 +287,7 @@ class PriceCalculator extends React.Component<Props, State> {
                 type="checkbox"
                 value={isChild}
                 style={{ marginRight: '0.5rem' }}
-                data-test="person-is-child"
+                data-testid={`person-is-child-${i + 1}`}
                 onChange={event => {
                   const { checked } = event.target
                   this.setState(state =>
@@ -302,7 +302,7 @@ class PriceCalculator extends React.Component<Props, State> {
               <Field
                 type="checkbox"
                 value={eatsDinner}
-                data-test="person-eats-dinner"
+                data-testid={`person-eats-dinner-${i + 1}`}
                 onChange={event => {
                   const { checked } = event.target
                   this.setState(state =>
@@ -320,7 +320,7 @@ class PriceCalculator extends React.Component<Props, State> {
                 fullWidth
                 type="number"
                 value={isAgeBlank ? '' : age}
-                data-test="person-age"
+                data-testid={`person-age-${i + 1}`}
                 onChange={event => {
                   const originalValue = event.target.value
                   const convertedValue = Number(originalValue)
@@ -344,7 +344,7 @@ class PriceCalculator extends React.Component<Props, State> {
             <CostBreakdown>
               <CostItem>
                 <b>Participation fee</b>:{' '}
-                <span data-test="total-participation-fee">
+                <span data-testid="total-participation-fee">
                   {participationFee}
                 </span>{' '}
                 €
@@ -363,7 +363,8 @@ class PriceCalculator extends React.Component<Props, State> {
               </CostItem>
             </CostBreakdown>
             <TotalCost>
-              <b>Total</b>: about <span data-test="total-cost">{total}</span> €
+              <b>Total</b>: about <span data-testid="total-cost">{total}</span>{' '}
+              €
             </TotalCost>
           </React.Fragment>
         ) : null}
