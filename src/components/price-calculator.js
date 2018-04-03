@@ -47,14 +47,17 @@ const PersonClose = styled.button`
   font: inherit;
   line-height: normal;
   overflow: visible;
+  margin: 0;
   padding: 0;
   appearance: button;
   user-select: none;
 
   display: block;
   position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
+  top: 0;
+  right: 0;
+  padding: 0.25rem;
+  transform: translate(50%, -50%);
   cursor: pointer;
   background: ${shade(0.5, '#fff')};
   border-radius: 50%;
