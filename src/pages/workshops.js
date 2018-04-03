@@ -12,12 +12,10 @@ const Grid = styled.div`
   ${props => props.theme.mq.md} {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  ${props => props.theme.mq.xxl} {
     margin-left: auto;
     margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 `
 
