@@ -1,11 +1,9 @@
 // @flow
 import * as React from 'react'
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 import GatsbyLink from 'gatsby-link'
-import { transparentize } from 'polished'
 import Container from '../components/container'
 import Text from '../components/text'
-import * as Icon from '../components/icons'
 import cl from '../utils/cloudinary'
 
 const Grid = styled.div`
@@ -42,7 +40,7 @@ const Link = styled(GatsbyLink)`
 
 const Name = styled.h2`
   align-self: stretch;
-  padding: 0.25rem 0;
+  padding: 0.75rem 0;
   background: ${props => props.theme.colors.secondary};
   font-family: ${props => props.theme.fontFamily.display};
   font-weight: 300;
@@ -67,26 +65,21 @@ const Image = styled.div`
   box-shadow: inset 0 0 0.75rem 0 rgba(0, 0, 0, 0.5);
 `
 
-const IconCoin = styled(Icon.Coin)`
-  ${props =>
-    props.inline
-      ? css`
-          display: inline-block;
-          vertical-align: -2px;
-        `
-      : null};
-`
-const Cost = styled.div`
+const ExtraCost = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.5rem;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
-  padding: 0.25rem;
-  background: ${props => transparentize(0.15, props.theme.colors.primary)};
-  color: #fff;
-  text-transform: lowercase;
-  font-variant: small-caps;
+  justify-content: center;
+  text-indent: -0.25rem;
+  width: 2rem;
+  height: 2rem;
+  background: #fff;
+  border-radius: 50%;
+  color: ${props => props.theme.colors.secondary};
+  font-weight: bold;
   ${props => props.theme.fontSmoothing};
 `
 
@@ -138,7 +131,7 @@ const WorkshopsPage = ({ data: { allMarkdownRemark: { edges } } }: Props) => (
         <p />
         <p>
           Most of these workshops are included in the participation fee. Those
-          that cost extra are marked with “<IconCoin inline size={18} />”
+          that cost extra are marked with “€”
         </p>
       </Text>
     </Container>
@@ -159,11 +152,7 @@ const WorkshopsPage = ({ data: { allMarkdownRemark: { edges } } }: Props) => (
                 ) : (
                   <Leader>{leaders[0]}</Leader>
                 )}
-                {cost != null ? (
-                  <Cost>
-                    <IconCoin size={18} />
-                  </Cost>
-                ) : null}
+                {cost != null ? <ExtraCost>€</ExtraCost> : null}
               </Image>
             </Link>
           </Item>
