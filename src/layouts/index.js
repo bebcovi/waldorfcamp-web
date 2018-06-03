@@ -5,6 +5,7 @@ import { ThemeProvider } from 'emotion-theming'
 import styled, { injectGlobal } from 'react-emotion'
 import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
 import { theme } from '../theme'
+import { TrackingCode } from '../components/tracking-code'
 import type { NavigationLinks } from '../types'
 // $FlowFixMe
 import favicon from '../images/favicon.ico'
@@ -66,6 +67,7 @@ const DefaultTemplate = ({ data, children }: Props) => {
         <Navigation links={links.navigation} />
         <Spacer />
         {children()}
+        <TrackingCode />
       </React.Fragment>
     </ThemeProvider>
   )
