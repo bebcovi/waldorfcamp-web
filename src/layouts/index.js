@@ -54,6 +54,7 @@ const DefaultTemplate = ({ data, children }: Props) => {
     <ThemeProvider theme={theme}>
       <React.Fragment>
         <Helmet>
+          <html lang="en" />
           <title>{title}</title>
           <meta charSet="utf-8" />
           <meta name="description" content={tagline} />
