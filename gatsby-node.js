@@ -12,12 +12,14 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
   switch (stage) {
     case 'build-html':
       actions.setWebpackConfig({
-        rules: [
-          {
-            test: /react-modal/,
-            loader: 'null-loader',
-          },
-        ],
+        module: {
+          rules: [
+            {
+              test: /react-modal/,
+              loader: 'null-loader',
+            },
+          ],
+        },
       })
       break
     default:
