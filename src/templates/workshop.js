@@ -3,6 +3,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from 'react-emotion'
+import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'
 import * as Icon from '../components/icons'
@@ -64,21 +65,23 @@ const WorkshopTemplate = ({ data }: Props) => {
     html,
   } = data.markdownRemark
   return (
-    <Container>
-      <Text>
-        <BackLink to="/workshops">
-          <Icon.ArrowLeft /> Workshops
-        </BackLink>
-        <h1>{title}</h1>
-        <Image {...image} />
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        {cost != null ? (
-          <p>
-            <strong>Cost</strong>: {cost}.
-          </p>
-        ) : null}
-      </Text>
-    </Container>
+    <Layout>
+      <Container>
+        <Text>
+          <BackLink to="/workshops">
+            <Icon.ArrowLeft /> Workshops
+          </BackLink>
+          <h1>{title}</h1>
+          <Image {...image} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          {cost != null ? (
+            <p>
+              <strong>Cost</strong>: {cost}.
+            </p>
+          ) : null}
+        </Text>
+      </Container>
+    </Layout>
   )
 }
 
