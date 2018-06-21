@@ -133,7 +133,6 @@ const TotalCost = styled.div`
   font-size: 1.25rem;
   color: ${props => props.theme.colors.secondary};
   text-align: center;
-  text-transform: uppercase;
 `
 
 type Props = {
