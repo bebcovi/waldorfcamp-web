@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-
 module.exports = {
   testPathIgnorePatterns: ['<rootDir>/.cache'],
   testURL: 'https://waldorfcamp.net',
