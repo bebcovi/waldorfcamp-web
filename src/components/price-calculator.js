@@ -185,7 +185,7 @@ class PriceCalculator extends React.Component<Props, State> {
           ) || { discount: 0 }
           const biggerDiscount = Math.max(discountByAge, discountByOrder)
           const participationFee =
-            price.participationFee * (1 * 10 - biggerDiscount * 10) / 10
+            (price.participationFee * (1 * 10 - biggerDiscount * 10)) / 10
           return total + participationFee
         }
         return total + price.participationFee
@@ -210,7 +210,7 @@ class PriceCalculator extends React.Component<Props, State> {
           const { discount } = price.discounts.lunch.byAge.find(
             discount => age >= discount.age.min && age <= discount.age.max,
           ) || { discount: 1 }
-          const lunchPrice = price.lunch * (1 * 10 - discount * 10) / 10
+          const lunchPrice = (price.lunch * (1 * 10 - discount * 10)) / 10
           return total + lunchPrice
         }
         return total + price.lunch

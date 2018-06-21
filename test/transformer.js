@@ -1,34 +1,26 @@
 module.exports = require('babel-jest').createTransformer({
   presets: [
-    // built-in
     [
-      'env',
+      '@babel/preset-env',
       {
-        modules: 'commonjs',
         targets: {
           node: 'current',
         },
-        exclude: ['transform-regenerator', 'transform-es2015-typeof-symbol'],
       },
     ],
-    'stage-0',
-    'react',
-    // custom
-    'flow',
+    '@babel/preset-react',
+    '@babel/preset-flow',
   ],
   plugins: [
-    // built-in
-    'gatsby/dist/utils/babel-plugin-extract-graphql',
-    'add-module-exports',
-    'transform-object-assign',
-    // custom
-    'lodash',
-    'polished',
-    'date-fns',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-syntax-dynamic-import',
+    'babel-plugin-lodash',
+    'babel-plugin-polished',
+    'babel-plugin-date-fns',
     [
-      'emotion',
+      'babel-plugin-emotion',
       {
-        sourceMap: true,
+        hoist: true,
         autoLabel: true,
       },
     ],

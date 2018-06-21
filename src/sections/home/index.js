@@ -1,7 +1,0 @@
-export When from './when'
-export About from './about'
-export Location from './location'
-export Workshops from './workshops'
-export NationalEvenings from './national-evenings'
-export Transfer from './transfer'
-export Registration from './registration'

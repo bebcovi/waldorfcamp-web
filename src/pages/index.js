@@ -1,7 +1,14 @@
 // @flow
 import * as React from 'react'
+import Layout from '../components/layout'
 import Hero from '../components/hero'
-import * as Section from '../sections/home'
+import SectionWhen from '../sections/home/when'
+import SectionAbout from '../sections/home/about'
+import SectionLocation from '../sections/home/location'
+// import SectionWorkshops from '../sections/home/workshops'
+import SectionNationalEvenings from '../sections/home/national-evenings'
+import SectionTransfer from '../sections/home/transfer'
+import SectionRegistration from '../sections/home/registration'
 
 type Props = {
   data: {
@@ -37,7 +44,7 @@ const HomePage = ({ data }: Props) => {
     links,
   } = data.site.siteMetadata
   return (
-    <div>
+    <Layout>
       <Hero
         title={title}
         subTitle={tagline}
@@ -45,15 +52,15 @@ const HomePage = ({ data }: Props) => {
         deadline={registrations.deadline}
       />
       <main>
-        <Section.When startDate={startDate} durationInDays={durationInDays} />
-        <Section.About />
-        <Section.Location />
-        {/* <Section.Workshops /> */}
-        <Section.NationalEvenings />
-        <Section.Transfer />
-        <Section.Registration {...registrations} email={email} links={links} />
+        <SectionWhen startDate={startDate} durationInDays={durationInDays} />
+        <SectionAbout />
+        <SectionLocation />
+        {/* <SectionWorkshops /> */}
+        <SectionNationalEvenings />
+        <SectionTransfer />
+        <SectionRegistration {...registrations} email={email} links={links} />
       </main>
-    </div>
+    </Layout>
   )
 }
 

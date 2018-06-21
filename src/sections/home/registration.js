@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'react-emotion'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import Section from '../../components/section'
 import Container from '../../components/container'
 import RegistrationButton from '../../components/registration-button'

@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'react-emotion'
+import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'
 import imgHelena from '../images/helena.jpg'
@@ -63,7 +64,7 @@ type Props = {
 const ContactPage = ({ data }: Props) => {
   const { email, links } = data.site.siteMetadata
   return (
-    <React.Fragment>
+    <Layout>
       <Container>
         <Text>
           <h1>Contact</h1>
@@ -91,7 +92,7 @@ const ContactPage = ({ data }: Props) => {
           </Info>
         </Profile>
       </Container>
-    </React.Fragment>
+    </Layout>
   )
 }
 

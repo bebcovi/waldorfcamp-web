@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from 'react-emotion'
 import Section from '../../components/section'
 import Container from '../../components/container'

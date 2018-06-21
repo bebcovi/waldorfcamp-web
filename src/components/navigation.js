@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import GatsbyLink from 'gatsby-link'
+import { Link as GatsbyLink } from 'gatsby'
 import styled from 'react-emotion'
 import Container from './container'
 import * as Icon from './icons'

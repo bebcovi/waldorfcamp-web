@@ -8,39 +8,58 @@
 
 const path = require('path')
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === 'build-html') {
-    config.loader('null', {
-      test: /react-modal/,
-      loader: 'null-loader',
-    })
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  switch (stage) {
+    case 'build-html':
+      actions.setWebpackConfig({
+        rules: [
+          {
+            test: /react-modal/,
+            loader: 'null-loader',
+          },
+        ],
+      })
+      break
+    default:
   }
 }
 
-exports.modifyBabelrc = ({ babelrc }) => ({
-  ...babelrc,
-  presets: [...babelrc.presets, 'flow'],
-  plugins: [
-    ...babelrc.plugins,
-    'lodash',
-    'polished',
-    'date-fns',
-    [
-      'emotion',
-      process.env.NODE_ENV === 'production'
-        ? {
-            hoist: true,
-          }
-        : {
-            sourceMap: true,
-            autoLabel: true,
-          },
-    ],
-  ],
-})
+exports.onCreateBabelConfig = ({ actions, stage }) => {
+  actions.setBabelPreset({
+    name: '@babel/preset-flow',
+    stage,
+  })
+  actions.setBabelPlugin(
+    {
+      name: 'babel-plugin-lodash',
+      stage,
+    },
+    {
+      name: 'babel-plugin-polished',
+      stage,
+    },
+    {
+      name: 'bable-plugin-date-fns',
+      stage,
+    },
+    {
+      name: 'babel-plugin-emotion',
+      stage,
+      options:
+        stage === 'build-html'
+          ? {
+              hoist: true,
+            }
+          : {
+              sourceMap: true,
+              autoLabel: true,
+            },
+    },
+  )
+}
 
-exports.createPages = async ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
   const workshopTemplate = path.join(
     __dirname,
     'src',

@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react'
 import styled from 'react-emotion'
-import GatsbyLink from 'gatsby-link'
+import { Link as GatsbyLink } from 'gatsby'
+import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'
 import cl from '../utils/cloudinary'
@@ -114,8 +115,12 @@ type Props = {
   },
 }
 
-const WorkshopsPage = ({ data: { allMarkdownRemark: { edges } } }: Props) => (
-  <React.Fragment>
+const WorkshopsPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}: Props) => (
+  <Layout>
     <Container>
       <Text>
         <h1>Workshops</h1>
@@ -136,7 +141,11 @@ const WorkshopsPage = ({ data: { allMarkdownRemark: { edges } } }: Props) => (
 
     <Grid>
       {edges.map(
-        ({ node: { frontmatter: { path, title, leaders, image, cost } } }) => (
+        ({
+          node: {
+            frontmatter: { path, title, leaders, image, cost },
+          },
+        }) => (
           <Item key={path}>
             <Link to={path}>
               <Name>{title}</Name>
@@ -157,7 +166,7 @@ const WorkshopsPage = ({ data: { allMarkdownRemark: { edges } } }: Props) => (
         ),
       )}
     </Grid>
-  </React.Fragment>
+  </Layout>
 )
 
 export const query = graphql`

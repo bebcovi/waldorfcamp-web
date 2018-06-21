@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable react/no-danger */
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from 'react-emotion'
 import Container from '../components/container'
 import Text from '../components/text'
@@ -59,7 +59,10 @@ type Props = {
 }
 
 const WorkshopTemplate = ({ data }: Props) => {
-  const { frontmatter: { title, image, cost }, html } = data.markdownRemark
+  const {
+    frontmatter: { title, image, cost },
+    html,
+  } = data.markdownRemark
   return (
     <Container>
       <Text>
