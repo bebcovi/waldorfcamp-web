@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable react/no-danger */
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from 'react-emotion'
 import Layout from '../components/layout'
 import Container from '../components/container'

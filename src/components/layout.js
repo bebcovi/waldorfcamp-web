@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'emotion-theming'
 import styled, { injectGlobal } from 'react-emotion'

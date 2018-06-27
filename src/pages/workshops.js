@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'react-emotion'
-import { Link as GatsbyLink } from 'gatsby'
+import { graphql, Link as GatsbyLink } from 'gatsby'
 import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'

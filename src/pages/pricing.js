@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'react-emotion'
 import ordinal from 'ordinal'
 import Layout from '../components/layout'
