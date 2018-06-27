@@ -265,7 +265,10 @@ class Photos extends React.Component<Props, State> {
     })
 
     const res = await fetchApi('/photos', { page, perPage, tags })
-    const { data, meta: { total } } = await res.json()
+    const {
+      data,
+      meta: { total },
+    } = await res.json()
 
     this.setState(state => {
       const photos = [...state.photos]

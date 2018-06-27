@@ -15,18 +15,21 @@ const Container = styled.header`
   justify-content: center;
   padding: 1.5rem 1rem 3rem;
   background: url(${cl.url('Foto_12-08-16_10_56_55_vzpvxq', {
-      transformation: [{
+      transformation: [
+        {
           crop: 'scale',
           y: 0,
           width: 1600,
           height: 1432,
-        }, {
+        },
+        {
           crop: 'crop',
           gravity: 'north',
           width: 1600,
           height: 860,
           effect: 'gamma:-30',
-        }],
+        },
+      ],
     })})
     center / cover no-repeat #223e77;
   color: #fff;
