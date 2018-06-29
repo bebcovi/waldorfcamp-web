@@ -71,7 +71,7 @@ const DefaultTemplate = ({ children }: Props) => {
         const { title, tagline, links } = staticData.site.siteMetadata
         return (
           <ThemeProvider theme={theme}>
-            <React.Fragment>
+            <>
               <Helmet>
                 <html lang="en" />
                 <title>{title}</title>
@@ -90,7 +90,7 @@ const DefaultTemplate = ({ children }: Props) => {
               <Spacer />
               {children}
               <TrackingCode />
-            </React.Fragment>
+            </>
           </ThemeProvider>
         )
       }}

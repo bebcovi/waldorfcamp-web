@@ -17,7 +17,7 @@ type Props = {
 }
 
 const RegistrationButton = ({ href, deadline, ...props }: Props) => (
-  <React.Fragment>
+  <>
     <ButtonLink href={href} {...props}>
       <Icon.Pen />
       <div>Register for participation</div>
@@ -26,7 +26,7 @@ const RegistrationButton = ({ href, deadline, ...props }: Props) => (
       Accepting registrations until{' '}
       <strong>{format(new Date(deadline), 'MMMM Do')}</strong>
     </Deadline>
-  </React.Fragment>
+  </>
 )
 
 export default RegistrationButton

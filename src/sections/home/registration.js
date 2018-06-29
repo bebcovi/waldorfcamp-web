@@ -27,7 +27,7 @@ const Registration = ({ accepting, deadline, email, links }: Props) => (
     <Container>
       <h2>Registration</h2>
       {accepting ? (
-        <React.Fragment>
+        <>
           <p>To register for participation you need to:</p>
           <ol>
             <li>fill out the registration form for you and your family</li>
@@ -43,7 +43,7 @@ const Registration = ({ accepting, deadline, email, links }: Props) => (
           <Center>
             <RegistrationButton href={links.register} deadline={deadline} />
           </Center>
-        </React.Fragment>
+        </>
       ) : (
         <p>
           We're still in the organization phase, we'll let you know when we're

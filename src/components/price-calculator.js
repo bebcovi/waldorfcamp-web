@@ -229,7 +229,7 @@ class PriceCalculator extends React.Component<Props, State> {
     const total = `${Math.round(totalMin)}-${Math.round(totalMax)}`
 
     return (
-      <React.Fragment>
+      <>
         <Label>
           <div>Number of members of your family</div>
           <Field
@@ -342,7 +342,7 @@ class PriceCalculator extends React.Component<Props, State> {
         ))}
 
         {people.length > 0 ? (
-          <React.Fragment>
+          <>
             <CostBreakdown>
               <CostItem>
                 <b>Participation fee</b>:{' '}
@@ -368,9 +368,9 @@ class PriceCalculator extends React.Component<Props, State> {
               <b>Total</b>: about <span data-testid="total-cost">{total}</span>{' '}
               €
             </TotalCost>
-          </React.Fragment>
+          </>
         ) : null}
-      </React.Fragment>
+      </>
     )
   }
 }
