@@ -1,6 +1,6 @@
 ---
 path: /workshops/circus
-title: Circus for Children and Adults
+title: Circus & Juggling
 image:
   id: 20900944_817074355117745_1700676849336374403_o_fpr6zf
   width: 1365
