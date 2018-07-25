@@ -10,11 +10,14 @@ export const getScreenSizeName = ({
 }): ScreenSizeName => {
   if (width >= theme.mq.xl) {
     return 'xl'
-  } else if (width >= theme.mq.lg) {
+  }
+  if (width >= theme.mq.lg) {
     return 'lg'
-  } else if (width >= theme.mq.md) {
+  }
+  if (width >= theme.mq.md) {
     return 'md'
-  } else if (width >= theme.mq.sm) {
+  }
+  if (width >= theme.mq.sm) {
     return 'sm'
   }
   return 'xs'

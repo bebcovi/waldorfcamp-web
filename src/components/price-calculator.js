@@ -5,7 +5,7 @@ import { shade, transparentize } from 'polished'
 import { updateIn, setIn, removeIn } from 'immutable'
 import { range } from 'lodash'
 import uuid from 'uuid'
-import * as Icon from '../components/icons'
+import * as Icon from './icons'
 import type { Price } from '../types'
 
 const MAX_NUMBER_OF_PEOPLE = 25
