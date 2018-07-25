@@ -60,7 +60,7 @@ const Image = styled.div`
         width: 512,
         crop: 'scale',
       })})
-    center / cover no-repeat;
+    #ddd center / cover no-repeat;
   box-shadow: inset 0 0 0.75rem 0 rgba(0, 0, 0, 0.5);
 `
 
