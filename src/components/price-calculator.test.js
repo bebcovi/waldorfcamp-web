@@ -4,8 +4,9 @@ import { render, cleanup, fireEvent } from 'react-testing-library'
 import { ThemeProvider } from 'emotion-theming'
 import { theme } from '../theme'
 import PriceCalculator from './price-calculator'
+import config from '../../gatsby-config'
 
-const { price } = require('../../gatsby-config').siteMetadata
+const { price } = config.siteMetadata
 
 const renderWithTheme = element =>
   render(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
