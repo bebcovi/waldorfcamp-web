@@ -48,11 +48,7 @@ const WhenSection = ({ startDate, durationInDays }: Props) => {
             {from} to {to}, {year}
           </span>
         </Lead>
-        <p>
-          That's two weeks, from Sunday to Sunday, and it is the{' '}
-          <strong>only</strong> option this year. We used to have more options,
-          but it was difficult to organize.
-        </p>
+        <p>Mark your calendars!</p>
       </Container>
     </SectionBg>
   )
