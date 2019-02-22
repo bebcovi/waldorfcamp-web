@@ -24,7 +24,7 @@ const RegistrationButton = ({ href, deadline, ...props }: Props) => (
     </ButtonLink>
     <Deadline>
       Accepting registrations until{' '}
-      <strong>{format(new Date(deadline), 'MMMM Do')}</strong>
+      <strong>{format(new Date(deadline), 'MMMM Do, YYYY')}</strong>
     </Deadline>
   </>
 )
