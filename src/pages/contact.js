@@ -7,11 +7,6 @@ import Container from '../components/container'
 import Text from '../components/text'
 import imgHelena from '../images/helena.jpg'
 
-const List = styled.ul`
-  list-style: disc;
-  padding-left: 1rem;
-`
-
 const Profile = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,16 +49,13 @@ type Props = {
     site: {
       siteMetadata: {
         email: string,
-        links: {
-          facebook: string,
-        },
       },
     },
   },
 }
 
 const ContactPage = ({ data }: Props) => {
-  const { email, links } = data.site.siteMetadata
+  const { email } = data.site.siteMetadata
   return (
     <Layout>
       <Container>
@@ -71,17 +63,9 @@ const ContactPage = ({ data }: Props) => {
           <h1>Contact</h1>
           <p>
             Planning a family vacation is a big deal, so we're to help with any
-            questions you might have. You can contact us by:
+            questions you might have. You can contact us by sending an email to{' '}
+            <a href={`mailto:${email}`}>{email}</a>.
           </p>
-          <List>
-            <li>
-              sending an email to <a href={`mailto:${email}`}>{email}</a>
-            </li>
-            <li>
-              sending a message to our{' '}
-              <a href={links.facebook}>Facebook page</a>
-            </li>
-          </List>
         </Text>
         <Profile>
           <Photo src={imgHelena} alt="Helena Ivetić" />
@@ -102,9 +86,6 @@ export const query = graphql`
     site {
       siteMetadata {
         email
-        links {
-          facebook
-        }
       }
     }
   }

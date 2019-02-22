@@ -26,7 +26,6 @@ type Props = {
         email: string,
         links: {
           register: string,
-          facebook: string,
           newsletter: string,
         },
       },
@@ -80,7 +79,6 @@ export const query = graphql`
         email
         links {
           register
-          facebook
           newsletter
         }
       }

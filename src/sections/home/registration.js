@@ -17,7 +17,6 @@ type Props = {
   email: string,
   links: {
     register: string,
-    facebook: string,
     newsletter: string,
   },
 }
@@ -47,9 +46,8 @@ const Registration = ({ accepting, deadline, email, links }: Props) => (
       ) : (
         <p>
           We're still in the organization phase, we'll let you know when we're
-          ready to receive registrations. This information will be published on
-          our <a href={links.facebook}>Facebook page</a>, you can also subscribe
-          to <a href={links.newsletter}>our newsletter</a> if you want to get
+          ready to receive registrations. You can subscribe to{' '}
+          <a href={links.newsletter}>our newsletter</a> if you want to get
           notified by email.
         </p>
       )}

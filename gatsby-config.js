@@ -47,7 +47,6 @@ module.exports = {
         { name: 'Pricing', path: '/pricing' },
         { name: 'Contact', path: '/contact' },
       ],
-      facebook: 'https://facebook.com/waldorfcamp',
       newsletter: 'http://eepurl.com/M7N7T',
       register: 'https://goo.gl/forms/FL8jOjALKUGYwcJq2',
       ferry:
