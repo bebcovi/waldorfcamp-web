@@ -4,8 +4,8 @@
   "author": "Matija Marohnić <matija.marohnic@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "gatsby develop",
     "build": "gatsby build",
-    "develop": "gatsby develop",
     "test": "jest"
   },
   "dependencies": {
