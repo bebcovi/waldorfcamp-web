@@ -64,14 +64,14 @@
     "trailingComma": "all"
   },
   "husky": {
-    "pre-commit": "flow && lint-staged"
+    "pre-commit": "flow && lint-staged",
+    "pre-push": "yarn test"
   },
   "lint-staged": {
     "linters": {
       "*.js": [
         "eslint --fix",
-        "git add",
-        "jest --findRelatedTests"
+        "git add"
       ]
     },
     "ignore": [
