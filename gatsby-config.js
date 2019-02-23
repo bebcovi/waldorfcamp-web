@@ -4,7 +4,7 @@ module.exports = {
     tagline: 'An active and dynamic vacation',
     registrations: {
       accepting: true,
-      deadline: '2019-05-01',
+      deadline: '2019-04-15',
     },
     startDate: '2019-08-03',
     durationInDays: 14,
