@@ -15,7 +15,7 @@ describe('price calculator', () => {
   afterEach(cleanup)
 
   describe('participation fee', () => {
-    it.skip('applies discounts for children based on age and order', () => {
+    it.skip('applies discounts for children based on age and order', async () => {
       const { getByTestId } = renderWithTheme(
         <PriceCalculator price={price} days={14} />,
       )
@@ -54,16 +54,14 @@ describe('price calculator', () => {
         <PriceCalculator price={price} days={14} />,
       )
       const countField = getByTestId('people-count')
-      countField.value = '3'
-      fireEvent.change(countField)
+      fireEvent.change(countField, { target: { value: '3' } })
       const peopleIndices = ['2', '3']
       peopleIndices.forEach(index => {
         const isChildCheckbox = getByTestId(`person-is-child-${index}`)
-        isChildCheckbox.checked = true
+        fireEvent.click(isChildCheckbox)
         fireEvent.change(isChildCheckbox)
         const ageField = getByTestId(`person-age-${index}`)
-        ageField.value = '6'
-        fireEvent.change(ageField)
+        fireEvent.change(ageField, { target: { value: '6' } })
       })
       const totalParticipationFee = Number(
         getByTestId('total-participation-fee').textContent,
