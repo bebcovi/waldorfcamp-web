@@ -8,7 +8,7 @@ image:
 leaders:
   - Daniel Torron Mack
 cost: null
-active: true
+active: false
 ---
 
 In acroyoga you can be the _base_ or the _flyer_. Daniel will teach us how to do both roles of this magnificent activity.

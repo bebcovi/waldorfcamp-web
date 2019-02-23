@@ -4,13 +4,13 @@ module.exports = {
     tagline: 'An active and dynamic vacation',
     registrations: {
       accepting: true,
-      deadline: '2018-04-15',
+      deadline: '2019-05-01',
     },
-    startDate: '2018-07-29',
+    startDate: '2019-08-03',
     durationInDays: 14,
     email: 'contact@waldorfcamp.net',
     price: {
-      participationFee: 120,
+      participationFee: 140,
       accommodation: {
         min: 15,
         max: 20,
@@ -48,11 +48,9 @@ module.exports = {
         { name: 'Contact', path: '/contact' },
       ],
       newsletter: 'http://eepurl.com/M7N7T',
-      register: 'https://goo.gl/forms/FL8jOjALKUGYwcJq2',
-      ferry:
-        'http://www.jadrolinija.hr/docs/default-source/lokalne-linije-2018---red-plovidbe/310-mali-lo%C5%A1inj---srakane---unije---susakF8EDA1033A67AF7A8A22AE09.pdf?sfvrsn=2',
-      catamaran:
-        'http://www.agencija-zolpp.hr/Portals/12/download/9401%20Olib%20Silba%20Premuda%20Zadar.pdf',
+      register: 'https://goo.gl/forms/XMlrk9M30vbzGYDl1',
+      ferry: 'https://www.jadrolinija.hr/en',
+      catamaran: 'https://www.miatours.hr/en',
     },
   },
   plugins: [

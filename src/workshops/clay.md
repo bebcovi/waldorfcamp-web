@@ -8,7 +8,7 @@ image:
 leaders:
   - Petar Bilić
 cost: null
-active: false
+active: true
 ---
 
 This year Petar will help us to discover the shape and movement of the visible and imaginative world through the touch of earth. We will be performing the ancient art of mankind exploring what can clay become with the help of our hands, feelings and imagination.

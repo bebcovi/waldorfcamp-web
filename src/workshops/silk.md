@@ -8,7 +8,7 @@ image:
 leaders:
   - Brigitta Soos
 cost: null
-active: true
+active: false
 ---
 
 Aerial silk -- also known as tissu, fabric or ribbons -- is a graceful young circus art in which aerialists do challenging climbs, wraps, poses and explore different shapes while hanging from a long, flowing piece of fabric.

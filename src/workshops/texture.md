@@ -8,7 +8,7 @@ image:
 leaders:
   - Petar Bilić
 cost: null
-active: true
+active: false
 ---
 
 We can see the usage of texture in sculpture, architecture and painting. In sculpture and architecture texture is real, while in painting it's often being imitated. Artificial texture is created using techniques like repeating a certain element or collages from various materials.
