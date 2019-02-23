@@ -11,7 +11,7 @@ module.exports = {
     email: 'contact@waldorfcamp.net',
     areWorkshopsWip: true,
     price: {
-      participationFee: 140,
+      participationFee: 130,
       accommodation: {
         min: 15,
         max: 20,
