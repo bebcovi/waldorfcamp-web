@@ -23,7 +23,7 @@ const overlayClassName = css`
   left: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background: ${transparentize(0.15, '#000')};
+  background: ${transparentize(0.85, '#000')};
 `
 
 const preventScrollClassName = css`

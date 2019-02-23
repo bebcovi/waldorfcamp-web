@@ -7,7 +7,7 @@ import Section from '../../components/section'
 import Container from '../../components/container'
 import * as Icon from '../../components/icons'
 
-export const BG_COLOR = shade(0.95, '#fff')
+export const BG_COLOR = shade(0.05, '#fff')
 const DATE_FORMAT = 'MMMM Do'
 
 const SectionBg = styled(Section)`
