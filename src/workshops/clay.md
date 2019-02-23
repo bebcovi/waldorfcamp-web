@@ -2,7 +2,7 @@
 path: /workshops/clay
 title: A Touch of Earth
 image:
-  id: 28418494_10160001530160082_402613778_o_pyhjga
+  id: IMG_0852_hrkrh6
   width: 1400
   height: 1200
 leaders:
