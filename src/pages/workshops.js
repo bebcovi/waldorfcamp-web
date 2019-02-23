@@ -5,6 +5,7 @@ import { graphql, Link as GatsbyLink } from 'gatsby'
 import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'
+import Alert from '../components/alert'
 import cl from '../utils/cloudinary'
 
 const Grid = styled.div`
@@ -95,6 +96,11 @@ const Leader = styled.div`
 
 type Props = {
   data: {
+    site: {
+      siteMetadata: {
+        areWorkshopsWip: boolean,
+      },
+    },
     allMarkdownRemark: {
       edges: Array<{
         node: {
@@ -117,6 +123,9 @@ type Props = {
 
 const WorkshopsPage = ({
   data: {
+    site: {
+      siteMetadata: { areWorkshopsWip },
+    },
     allMarkdownRemark: { edges },
   },
 }: Props) => (
@@ -136,6 +145,14 @@ const WorkshopsPage = ({
           Most of these workshops are included in the participation fee. Those
           that cost extra are marked with “€”
         </p>
+        {areWorkshopsWip ? (
+          <Alert type="warning">
+            <p>
+              We're still working out some details, this list of workshops is
+              not final!
+            </p>
+          </Alert>
+        ) : null}
       </Text>
     </Container>
 
@@ -171,6 +188,11 @@ const WorkshopsPage = ({
 
 export const query = graphql`
   query WorkshopsPageQuery {
+    site {
+      siteMetadata {
+        areWorkshopsWip
+      }
+    }
     allMarkdownRemark(
       filter: { frontmatter: { active: { eq: true } } }
       sort: { fields: [frontmatter___title], order: ASC }

@@ -9,6 +9,7 @@ module.exports = {
     startDate: '2019-08-03',
     durationInDays: 14,
     email: 'contact@waldorfcamp.net',
+    areWorkshopsWip: true,
     price: {
       participationFee: 140,
       accommodation: {
