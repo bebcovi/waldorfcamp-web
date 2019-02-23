@@ -57,5 +57,25 @@
     "lint-staged": "^8.1.4",
     "prettier": "^1.16.4",
     "react-testing-library": "^5.9.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "husky": {
+    "pre-commit": "flow && lint-staged"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "git add",
+        "jest --findRelatedTests"
+      ]
+    },
+    "ignore": [
+      "flow-typed/npm/**/*"
+    ]
   }
 }
