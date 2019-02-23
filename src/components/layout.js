@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'emotion-theming'
 import styled, { injectGlobal } from 'react-emotion'
@@ -34,6 +34,24 @@ type StaticData = {
 }
 
 const DefaultTemplate = ({ children }: Props) => {
+  const staticData: StaticData = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+          tagline
+          links {
+            navigation {
+              name
+              path
+            }
+          }
+        }
+      }
+    }
+  `)
+  const { title, tagline, links } = staticData.site.siteMetadata
+
   // eslint-disable-next-line no-unused-expressions
   injectGlobal`
     html {
@@ -41,7 +59,7 @@ const DefaultTemplate = ({ children }: Props) => {
       line-height: 1.6;
       ${theme.mq.sm} {
         font-size: 18px;
-      }      
+      }
     }
 
     a {
@@ -50,51 +68,25 @@ const DefaultTemplate = ({ children }: Props) => {
   `
 
   return (
-    <StaticQuery
-      query={graphql`
-        query LayoutQuery {
-          site {
-            siteMetadata {
-              title
-              tagline
-              links {
-                navigation {
-                  name
-                  path
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={(staticData: StaticData) => {
-        const { title, tagline, links } = staticData.site.siteMetadata
-        return (
-          <ThemeProvider theme={theme}>
-            <>
-              <Helmet>
-                <html lang="en" />
-                <title>{title}</title>
-                <meta name="description" content={tagline} />
-                <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1"
-                />
-                <meta
-                  name="google-site-verification"
-                  content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
-                />
-                <link rel="icon" href={favicon} />
-              </Helmet>
-              <Navigation links={links.navigation} />
-              <Spacer />
-              {children}
-              <TrackingCode />
-            </>
-          </ThemeProvider>
-        )
-      }}
-    />
+    <ThemeProvider theme={theme}>
+      <>
+        <Helmet>
+          <html lang="en" />
+          <title>{title}</title>
+          <meta name="description" content={tagline} />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="google-site-verification"
+            content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
+          />
+          <link rel="icon" href={favicon} />
+        </Helmet>
+        <Navigation links={links.navigation} />
+        <Spacer />
+        {children}
+        <TrackingCode />
+      </>
+    </ThemeProvider>
   )
 }
 
