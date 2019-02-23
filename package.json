@@ -15,7 +15,6 @@
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-polished": "^1.1.0",
     "cloudinary-core": "^2.5.0",
-    "cloudinary-react": "^1.0.6",
     "date-fns": "^1.29.0",
     "emotion": "^9.2.6",
     "emotion-server": "^9.2.6",
@@ -28,7 +27,6 @@
     "gatsby-remark-smartypants": "^2.0.0-beta.3",
     "gatsby-source-filesystem": "^2.0.1-beta.10",
     "gatsby-transformer-remark": "^2.1.1-beta.4",
-    "imagesloaded": "^4.1.4",
     "immutable": "^4.0.0-rc.9",
     "lodash": "^4.17.5",
     "ordinal": "^1.0.2",
@@ -38,11 +36,6 @@
     "react-emotion": "^9.2.6",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.5.1",
-    "react-point": "^3.0.1",
-    "react-scrolllock": "^3.0.1",
-    "react-transition-group": "^2.3.0",
-    "react-virtualized": "^9.20.1",
-    "recompose": "^0.27.1",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
