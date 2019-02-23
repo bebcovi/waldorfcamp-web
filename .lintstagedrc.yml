@@ -1,6 +1,7 @@
 linters:
   "**/*.js":
-    - eslint
+    - eslint --fix
+    - git add
     - jest --findRelatedTests
 
 ignore:
