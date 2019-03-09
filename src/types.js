@@ -9,7 +9,7 @@ export type NavigationLinks = Array<{
 export type ScreenSizeName = $Keys<typeof theme.screenWidth>
 
 export type Discounts = {
-  [service: string]: {
+  participationFee: {
     byAge: Array<{
       age: { min: number, max: number },
       discount: number,
@@ -17,6 +17,12 @@ export type Discounts = {
     byOrder: Array<{
       order: number,
       discount: number,
+    }>,
+  },
+  lunch: {
+    byAge: Array<{
+      age: { min: number, max: number },
+      amount: number,
     }>,
   },
 }

@@ -10,6 +10,7 @@ import { Button } from '../components/button'
 import Modal from '../components/modal'
 import PriceCalculator from '../components/price-calculator'
 import * as Icon from '../components/icons'
+import { fromHrkToEur } from '../utils/currency'
 import type { Price } from '../types'
 
 const Heading = styled.div`
@@ -184,25 +185,21 @@ class PricingPage extends React.Component<Props, State> {
             <p>
               Lunch is obligatory and is organized in the main Olib’s restaurant
               called “Zadruga” wich is also our meeting point. The price for
-              lunch will be{' '}
-              <strong>
-                {Math.round((price.lunch * 7.44511) / 10) * 10} HRK
-              </strong>{' '}
-              (approximately <strong>{price.lunch} €</strong>) including soup,
+              lunch will be <strong>{price.lunch} HRK</strong> (approximately{' '}
+              <strong>{fromHrkToEur(price.lunch)} €</strong>) including soup,
               main dish, salad and dessert. Children have the following
               discounts:
             </p>
             <ol>
-              {price.discounts.lunch.byAge.map(({ age, discount }) => {
+              {price.discounts.lunch.byAge.map(({ age, amount }) => {
                 let content
                 if (age.min === 0) {
-                  content = `children under ${
-                    age.max
-                  } years old have a ${discount * 100}% discount`
+                  content = `for children under ${age.max +
+                    1} years old the price is ${amount} HRK`
                 } else {
-                  content = `children aged from ${age.min} to ${
+                  content = `for children aged from ${age.min} to ${
                     age.max
-                  } have a ${discount * 100}% discount`
+                  } the price is ${amount} HRK`
                 }
                 return <li key={`${age.min}-${age.max}`}>{content}</li>
               })}
@@ -254,7 +251,7 @@ export const query = graphql`
                   min
                   max
                 }
-                discount
+                amount
               }
             }
           }

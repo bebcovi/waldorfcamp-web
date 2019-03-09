@@ -4,4 +4,5 @@ module.exports = {
   transform: {
     '^.+\\.jsx?$': '<rootDir>/test/transformer.js',
   },
+  setupFilesAfterEnv: ['<rootDir>/test/setup-after-env.js'],
 }

@@ -2,6 +2,7 @@
 import React from 'react'
 import { render, cleanup, fireEvent } from 'react-testing-library'
 import { ThemeProvider } from 'emotion-theming'
+import { fromHrkToEur } from '../utils/currency'
 import { theme } from '../theme'
 import PriceCalculator from './price-calculator'
 import config from '../../gatsby-config'
@@ -70,6 +71,28 @@ describe('price calculator', () => {
         price.participationFee +
           price.participationFee +
           price.participationFee * 0.8,
+      )
+    })
+  })
+
+  describe('lunch', () => {
+    it('applies discount for children under 13', () => {
+      const { getByTestId } = renderWithTheme(
+        <PriceCalculator price={price} days={14} />,
+      )
+      const countField = getByTestId('people-count')
+      fireEvent.change(countField, { target: { value: '3' } })
+      fireEvent.click(getByTestId('person-is-child-1'))
+      fireEvent.change(getByTestId('person-age-1'), { target: { value: '6' } })
+      fireEvent.click(getByTestId('person-is-child-2'))
+      fireEvent.change(getByTestId('person-age-2'), { target: { value: '13' } })
+      expect(getByTestId('lunch-total')).toHaveTextContent(
+        `${Math.round(
+          (fromHrkToEur(price.lunch) +
+            fromHrkToEur(price.lunch) +
+            fromHrkToEur(price.discounts.lunch.byAge[0].amount)) *
+            14,
+        )} €`,
       )
     })
   })

@@ -6,6 +6,7 @@ import { updateIn, setIn, removeIn } from 'immutable'
 import { range } from 'lodash'
 import uuid from 'uuid'
 import * as Icon from './icons'
+import { fromHrkToEur } from '../utils/currency'
 import type { Price } from '../types'
 
 const MAX_NUMBER_OF_PEOPLE = 25
@@ -205,14 +206,16 @@ class PriceCalculator extends React.Component<Props, State> {
 
     const lunch =
       people.reduce((total, { isChild, age }) => {
+        let amountHrk
         if (isChild) {
-          const { discount } = price.discounts.lunch.byAge.find(
+          const { amount } = price.discounts.lunch.byAge.find(
             discount => age >= discount.age.min && age <= discount.age.max,
-          ) || { discount: 1 }
-          const lunchPrice = (price.lunch * (1 * 10 - discount * 10)) / 10
-          return total + lunchPrice
+          ) || { amount: price.lunch }
+          amountHrk = amount
+        } else {
+          amountHrk = price.lunch
         }
-        return total + price.lunch
+        return total + fromHrkToEur(amountHrk)
       }, 0) * days
 
     const dinner =
@@ -354,7 +357,7 @@ class PriceCalculator extends React.Component<Props, State> {
               <CostItem>
                 <b>Accommodation</b>: about {accommodation} €
               </CostItem>
-              <CostItem>
+              <CostItem data-testid="lunch-total">
                 <b>Lunch</b>: {Math.round(lunch)} €
               </CostItem>
               <CostItem>
