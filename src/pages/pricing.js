@@ -11,6 +11,7 @@ import Modal from '../components/modal'
 import PriceCalculator from '../components/price-calculator'
 import * as Icon from '../components/icons'
 import { fromHrkToEur } from '../utils/currency'
+import { capitalize } from '../utils/string'
 import type { Price } from '../types'
 
 const Heading = styled.div`
@@ -68,6 +69,20 @@ class PricingPage extends React.Component<Props, State> {
   render() {
     const { durationInDays, price, links } = this.props.data.site.siteMetadata
     const { calculatorOpen } = this.state
+    const lunchDiscounts: string[] = price.discounts.lunch.byAge.map(
+      ({ age, amount }) => {
+        let text
+        if (age.min === 0) {
+          text = `for children under ${age.max +
+            1} years old the price is ${amount} HRK`
+        } else {
+          text = `for children aged from ${age.min} to ${
+            age.max
+          } the price is ${amount} HRK`
+        }
+        return text
+      },
+    )
     return (
       <Layout>
         <Container>
@@ -183,27 +198,26 @@ class PricingPage extends React.Component<Props, State> {
             </p>
             <h2>Food</h2>
             <p>
-              Lunch is obligatory and is organized in the main Olib’s restaurant
-              called “Zadruga” wich is also our meeting point. The price for
-              lunch will be <strong>{price.lunch} HRK</strong> (approximately{' '}
-              <strong>{fromHrkToEur(price.lunch)} €</strong>) including soup,
-              main dish, salad and dessert. Children have the following
-              discounts:
+              <>
+                Lunch is obligatory and is organized in the main Olib’s
+                restaurant called “Zadruga” wich is also our meeting point. The
+                price for lunch will be <strong>{price.lunch} HRK</strong>{' '}
+                (approximately <strong>{fromHrkToEur(price.lunch)} €</strong>)
+                including soup, main dish, salad and dessert.{' '}
+              </>
+              {lunchDiscounts.length > 1 ? (
+                <>Children have the following discounts:</>
+              ) : (
+                `${capitalize(lunchDiscounts[0] || '')}.`
+              )}
             </p>
-            <ol>
-              {price.discounts.lunch.byAge.map(({ age, amount }) => {
-                let content
-                if (age.min === 0) {
-                  content = `for children under ${age.max +
-                    1} years old the price is ${amount} HRK`
-                } else {
-                  content = `for children aged from ${age.min} to ${
-                    age.max
-                  } the price is ${amount} HRK`
-                }
-                return <li key={`${age.min}-${age.max}`}>{content}</li>
-              })}
-            </ol>
+            {lunchDiscounts.length > 1 ? (
+              <ol>
+                {lunchDiscounts.map(content => (
+                  <li key={content}>{content}</li>
+                ))}
+              </ol>
+            ) : null}
           </Text>
           <Spacer />
         </Container>
