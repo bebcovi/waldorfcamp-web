@@ -5,14 +5,13 @@ import styled from 'react-emotion'
 import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'
-import imgHelena from '../images/helena.jpg'
 
 const Profile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
-  ${props => props.theme.mq.sm} {
+  ${props => props.theme.mq.md} {
     flex-direction: row;
   }
 `
@@ -20,8 +19,8 @@ const Photo = styled.img`
   box-sizing: content-box;
   display: block;
   max-width: none;
-  width: 262px;
-  height: 262px;
+  max-width: 100%;
+  max-height: 240px;
   ${props => props.theme.imageFrame};
   margin-bottom: 0.5rem;
 `
@@ -68,11 +67,14 @@ const ContactPage = ({ data }: Props) => {
           </p>
         </Text>
         <Profile>
-          <Photo src={imgHelena} alt="Helena Ivetić" />
+          <Photo
+            src="https://res.cloudinary.com/waldorf-camp-hr/image/upload/c_fill,g_face,h_426,w_706/v1552854643/37936605_1954214804600660_8206543760796942336_n_qeotfj.jpg"
+            alt="Helena Ivetić"
+          />
           <Info>
-            <Name>Helena Ivetić</Name>
-            <PhoneNumber href="tel:+385 92 1765 555‬">
-              +385 92 1765 555‬
+            <Name>Emir Češo</Name>
+            <PhoneNumber href="tel:‭+385 91 5688 472‬">
+              ‭+385 91 5688 472‬
             </PhoneNumber>
           </Info>
         </Profile>
