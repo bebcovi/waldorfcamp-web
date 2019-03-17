@@ -18,7 +18,6 @@ module.exports = {
       },
       touristTax: 0.8,
       lunch: 70,
-      dinner: 6,
       discounts: {
         participationFee: {
           byAge: [

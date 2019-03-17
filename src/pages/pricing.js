@@ -204,11 +204,6 @@ class PricingPage extends React.Component<Props, State> {
                 return <li key={`${age.min}-${age.max}`}>{content}</li>
               })}
             </ol>
-            <p>
-              You can eat dinner at the restaurant too, it costs{' '}
-              <strong>{price.dinner} €</strong>. The everyday menu is suited for
-              vegetarians also and there is an option for vegan food.
-            </p>
           </Text>
           <Spacer />
         </Container>
@@ -230,7 +225,6 @@ export const query = graphql`
           }
           touristTax
           lunch
-          dinner
           discounts {
             participationFee {
               byAge {

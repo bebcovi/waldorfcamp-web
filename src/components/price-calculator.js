@@ -13,7 +13,6 @@ const MAX_NUMBER_OF_PEOPLE = 25
 
 const createPerson = () => ({
   id: uuid(),
-  eatsDinner: false,
   isChild: false,
   age: 0,
   isAgeBlank: false,
@@ -146,7 +145,6 @@ type State = {
   exceededMaxPeople: boolean,
   people: Array<{
     id: string,
-    eatsDinner: boolean,
     isChild: boolean,
     age: number,
     isAgeBlank: boolean,
@@ -218,15 +216,7 @@ class PriceCalculator extends React.Component<Props, State> {
         return total + fromHrkToEur(amountHrk)
       }, 0) * days
 
-    const dinner =
-      people.reduce((total, { eatsDinner }) => {
-        if (eatsDinner) {
-          return total + price.dinner
-        }
-        return total
-      }, 0) * days
-
-    const totalBase = participationFee + touristTax + lunch + dinner
+    const totalBase = participationFee + touristTax + lunch
     const totalMin = totalBase + accommodationMin
     const totalMax = totalBase + accommodationMax
     const total = `${Math.round(totalMin)}-${Math.round(totalMax)}`
@@ -275,7 +265,7 @@ class PriceCalculator extends React.Component<Props, State> {
           </ValidationMessage>
         </Label>
 
-        {people.map(({ id, isChild, eatsDinner, age, isAgeBlank }, i) => (
+        {people.map(({ id, isChild, age, isAgeBlank }, i) => (
           <Person key={id} data-testid={`person-${i + 1}`}>
             <PersonClose
               onClick={() => {
@@ -301,21 +291,6 @@ class PriceCalculator extends React.Component<Props, State> {
                 }}
               />
               <div>Is this a child?</div>
-            </Label>
-
-            <Label inline>
-              <Field
-                type="checkbox"
-                value={eatsDinner}
-                data-testid={`person-eats-dinner-${i + 1}`}
-                onChange={event => {
-                  const { checked } = event.target
-                  this.setState(state =>
-                    setIn(state, ['people', i, 'eatsDinner'], checked),
-                  )
-                }}
-              />
-              <div>Will they eat dinner?</div>
             </Label>
 
             <Label disabled={!isChild}>
@@ -359,9 +334,6 @@ class PriceCalculator extends React.Component<Props, State> {
               </CostItem>
               <CostItem data-testid="lunch-total">
                 <b>Lunch</b>: {Math.round(lunch)} €
-              </CostItem>
-              <CostItem>
-                <b>Dinner</b>: {Math.round(dinner)} €
               </CostItem>
               <CostItem>
                 <b>Tourist tax</b>: {Math.round(touristTax)} €

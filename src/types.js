@@ -35,6 +35,5 @@ export type Price = {
   },
   touristTax: number,
   lunch: number,
-  dinner: number,
   discounts: Discounts,
 }
