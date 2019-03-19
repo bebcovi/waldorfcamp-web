@@ -73,8 +73,9 @@ class PricingPage extends React.Component<Props, State> {
       ({ age, amount }) => {
         let text
         if (age.min === 0) {
-          text = `for children under ${age.max +
-            1} years old the price is ${amount} HRK`
+          text = `for children up to ${
+            age.max
+          } years old the price is ${amount} HRK`
         } else {
           text = `for children aged from ${age.min} to ${
             age.max
