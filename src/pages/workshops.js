@@ -177,7 +177,9 @@ const WorkshopsPage = ({
                   ) : (
                     <Leader>{leaders[0]}</Leader>
                   ))}
-                {cost != null ? <ExtraCost>€</ExtraCost> : null}
+                {cost != null && title !== 'Painting' ? (
+                  <ExtraCost>€</ExtraCost>
+                ) : null}
               </Image>
             </Link>
           </Item>
