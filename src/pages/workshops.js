@@ -167,15 +167,16 @@ const WorkshopsPage = ({
             <Link to={path}>
               <Name>{title}</Name>
               <Image {...image}>
-                {leaders.length > 1 ? (
-                  <Leader>
-                    {leaders.slice(0, leaders.length - 1).join(', ')}
-                    {' & '}
-                    {leaders[leaders.length - 1]}
-                  </Leader>
-                ) : (
-                  <Leader>{leaders[0]}</Leader>
-                )}
+                {!areWorkshopsWip &&
+                  (leaders.length > 1 ? (
+                    <Leader>
+                      {leaders.slice(0, leaders.length - 1).join(', ')}
+                      {' & '}
+                      {leaders[leaders.length - 1]}
+                    </Leader>
+                  ) : (
+                    <Leader>{leaders[0]}</Leader>
+                  ))}
                 {cost != null ? <ExtraCost>€</ExtraCost> : null}
               </Image>
             </Link>
