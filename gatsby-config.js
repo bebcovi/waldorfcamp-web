@@ -40,6 +40,7 @@ module.exports = {
       navigation: [
         { name: 'Home', path: '/' },
         { name: 'Workshops', path: '/workshops' },
+        { name: 'Gallery', path: '/gallery' },
         { name: 'Pricing', path: '/pricing' },
         { name: 'Contact', path: '/contact' },
       ],

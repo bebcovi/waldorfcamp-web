@@ -8,6 +8,13 @@
 
 const path = require('path')
 
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line global-require
+  require('dotenv-safe').config()
+}
+
+const cloudinary = require('cloudinary').v2
+
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
   switch (stage) {
     case 'build-html':
@@ -58,6 +65,31 @@ exports.onCreateBabelConfig = ({ actions, stage }) => {
             },
     },
   )
+}
+
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const { resources } = await cloudinary.search
+    .expression('resource_type:image NOT tags:exclude-from-gallery ')
+    .max_results(100)
+    .execute()
+  resources.forEach(resource => {
+    const nodeId = createNodeId(`cloudinary-resource-${resource.public_id}`)
+    actions.createNode({
+      ...resource,
+      id: nodeId,
+      parent: null,
+      children: [],
+      internal: {
+        type: 'CloudinaryResource',
+        content: JSON.stringify(resource),
+        contentDigest: createContentDigest(resource),
+      },
+    })
+  })
 }
 
 exports.createPages = async ({ actions, graphql }) => {
