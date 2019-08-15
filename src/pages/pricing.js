@@ -201,10 +201,11 @@ class PricingPage extends React.Component<Props, State> {
             <p>
               <>
                 Lunch is obligatory and is organized in the main Olib’s
-                restaurant called “Zadruga” wich is also our meeting point. The
-                price for lunch will be <strong>{price.lunch} HRK</strong>{' '}
-                (approximately <strong>{fromHrkToEur(price.lunch)} €</strong>)
-                including soup, main dish, salad and dessert.{' '}
+                restaurant called “Gostionica Olib” wich is also our meeting
+                point. The price for lunch will be{' '}
+                <strong>{price.lunch} HRK</strong> (approximately{' '}
+                <strong>{fromHrkToEur(price.lunch)} €</strong>) including soup,
+                main dish, salad and dessert.{' '}
               </>
               {lunchDiscounts.length > 1 ? (
                 <>Children have the following discounts:</>
