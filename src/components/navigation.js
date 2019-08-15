@@ -83,7 +83,7 @@ const Navigation = ({ links }: Props) => (
         <List>
           {links.map(({ name, path }) => (
             <li key={name}>
-              <Link to={path} exact activeClassName="active">
+              <Link to={path} exact="true" activeClassName="active">
                 {name}
               </Link>
             </li>
