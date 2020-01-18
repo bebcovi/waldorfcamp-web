@@ -23,7 +23,7 @@ const Person = styled.div`
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   padding: 1rem 0.75rem 0.75rem;
-  border: 1px dashed ${shade(0.3, '#fff')};
+  border: 1px dashed ${shade(0.7, '#fff')};
   border-radius: 0.25rem;
 `
 const PersonTitle = styled.h4`
@@ -32,8 +32,8 @@ const PersonTitle = styled.h4`
   left: 50%;
   transform: translateX(-50%);
   padding: 0 0.5rem;
-  background: ${shade(0.1, '#fff')};
-  border: 1px solid ${shade(0.3, '#fff')};
+  background: ${shade(0.9, '#fff')};
+  border: 1px solid ${shade(0.7, '#fff')};
   border-radius: 10px;
   white-space: nowrap;
   text-transform: lowercase;
@@ -65,7 +65,7 @@ const PersonClose = styled.button`
   color: #fff;
   &:hover,
   &:focus {
-    background: ${shade(0.75, '#fff')};
+    background: ${shade(0.25, '#fff')};
   }
 `
 
@@ -93,7 +93,7 @@ const Label = styled.label`
 const Field = styled.input`
   padding: 0.5rem;
   border: 0;
-  background: ${shade(0.15, '#fff')};
+  background: ${shade(0.85, '#fff')};
   border-radius: 0.25rem;
   ${props =>
     props.fullWidth
@@ -127,7 +127,7 @@ const TotalCost = styled.div`
   margin-top: 1rem;
   padding: 0.25rem;
   border: 0.25rem solid
-    ${props => transparentize(0.25, props.theme.colors.secondary)};
+    ${props => transparentize(0.75, props.theme.colors.secondary)};
   border-left: 0;
   border-right: 0;
   font-size: 1.25rem;

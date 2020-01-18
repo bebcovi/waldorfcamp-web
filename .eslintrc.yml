@@ -11,18 +11,21 @@ extends:
   - prettier/react
 rules:
   no-shadow: off
+  prefer-destructuring: off
   import/prefer-default-export: off
+  jsx-a11y/anchor-is-valid: off
   # https://github.com/yannickcr/eslint-plugin-react/issues/1593#issuecomment-395072926
   react/default-props-match-prop-types:
     - error
     - allowRequiredDefaults: true
   react/destructuring-assignment: off
+  react/jsx-props-no-spreading: off
   react/no-array-index-key: warn
   react/no-unescaped-entities: off
-  react/require-default-props:
-    - error
-    - forbidDefaultForRequired: false
+  react/react-in-jsx-scope: off
+  react/require-default-props: off
   react/sort-comp: off
+  react/state-in-constructor: off
   react/jsx-filename-extension: off
   prettier/prettier: error
 

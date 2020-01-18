@@ -16,9 +16,9 @@ type Props = {
   deadline: string,
 }
 
-const RegistrationButton = ({ href, deadline, ...props }: Props) => (
+const RegistrationButton = ({ deadline, ...props }: Props) => (
   <>
-    <ButtonLink href={href} {...props}>
+    <ButtonLink {...props}>
       <Icon.Pen />
       <div>Register for participation</div>
     </ButtonLink>

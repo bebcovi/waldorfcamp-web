@@ -40,7 +40,10 @@ Icon.defaultProps = {
   fill: 'currentColor',
 }
 
-type Props = {}
+type Props = {|
+  size?: number,
+  fill?: string,
+|}
 
 export const Home = (props: Props) => (
   <Icon viewBox="0 0 16 16" {...props}>
