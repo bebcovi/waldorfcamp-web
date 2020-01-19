@@ -2,17 +2,12 @@
 /* eslint-env browser */
 import * as React from 'react'
 import ReactModal from 'react-modal'
-import styled, { css } from 'react-emotion'
+import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 import Text from './text'
 import * as Icon from './icons'
 import { theme } from '../theme'
 import { z, EL } from '../utils/z'
-
-// avoid breaking Gatsby's build
-if (ReactModal.setAppElement != null) {
-  ReactModal.setAppElement('#___gatsby')
-}
 
 const overlayClassName = css`
   position: fixed;
@@ -23,7 +18,7 @@ const overlayClassName = css`
   left: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background: ${transparentize(0.85, '#000')};
+  background: ${transparentize(0.15, '#000')};
 `
 
 const preventScrollClassName = css`

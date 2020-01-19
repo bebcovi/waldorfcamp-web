@@ -1,5 +1,5 @@
 // @flow
-import styled from 'react-emotion'
+import styled from 'styled-components'
 
 const ButtonBase = styled.div`
   padding: 0.75rem 1.25rem;

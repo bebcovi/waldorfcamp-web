@@ -1,12 +1,11 @@
 // @flow
 import * as React from 'react'
-import styled, { css } from 'react-emotion'
+import styled, { css } from 'styled-components'
 import { shade, transparentize } from 'polished'
 import { updateIn, setIn, removeIn } from 'immutable'
 import { range } from 'lodash'
 import uuid from 'uuid'
 import * as Icon from './icons'
-import { fromHrkToEur } from '../utils/currency'
 import type { Price } from '../types'
 
 const MAX_NUMBER_OF_PEOPLE = 25
@@ -23,7 +22,7 @@ const Person = styled.div`
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   padding: 1rem 0.75rem 0.75rem;
-  border: 1px dashed ${shade(0.3, '#fff')};
+  border: 1px dashed ${shade(0.7, '#fff')};
   border-radius: 0.25rem;
 `
 const PersonTitle = styled.h4`
@@ -32,8 +31,8 @@ const PersonTitle = styled.h4`
   left: 50%;
   transform: translateX(-50%);
   padding: 0 0.5rem;
-  background: ${shade(0.1, '#fff')};
-  border: 1px solid ${shade(0.3, '#fff')};
+  background: ${shade(0.9, '#fff')};
+  border: 1px solid ${shade(0.7, '#fff')};
   border-radius: 10px;
   white-space: nowrap;
   text-transform: lowercase;
@@ -65,7 +64,7 @@ const PersonClose = styled.button`
   color: #fff;
   &:hover,
   &:focus {
-    background: ${shade(0.75, '#fff')};
+    background: ${shade(0.25, '#fff')};
   }
 `
 
@@ -93,7 +92,7 @@ const Label = styled.label`
 const Field = styled.input`
   padding: 0.5rem;
   border: 0;
-  background: ${shade(0.15, '#fff')};
+  background: ${shade(0.85, '#fff')};
   border-radius: 0.25rem;
   ${props =>
     props.fullWidth
@@ -127,7 +126,7 @@ const TotalCost = styled.div`
   margin-top: 1rem;
   padding: 0.25rem;
   border: 0.25rem solid
-    ${props => transparentize(0.25, props.theme.colors.secondary)};
+    ${props => transparentize(0.75, props.theme.colors.secondary)};
   border-left: 0;
   border-right: 0;
   font-size: 1.25rem;
@@ -204,16 +203,16 @@ class PriceCalculator extends React.Component<Props, State> {
 
     const lunch =
       people.reduce((total, { isChild, age }) => {
-        let amountHrk
+        let amount
         if (isChild) {
-          const { amount } = price.discounts.lunch.byAge.find(
-            discount => age >= discount.age.min && age <= discount.age.max,
-          ) || { amount: price.lunch }
-          amountHrk = amount
+          amount =
+            price.discounts.lunch.byAge.find(
+              discount => age >= discount.age.min && age <= discount.age.max,
+            )?.amount || price.lunch
         } else {
-          amountHrk = price.lunch
+          amount = price.lunch
         }
-        return total + fromHrkToEur(amountHrk)
+        return total + amount
       }, 0) * days
 
     const totalBase = participationFee + touristTax + lunch

@@ -1,20 +1,17 @@
 // @flow
 import React from 'react'
-import { render, cleanup, fireEvent } from 'react-testing-library'
-import { ThemeProvider } from 'emotion-theming'
-import { fromHrkToEur } from '../utils/currency'
+import { render, fireEvent } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
 import { theme } from '../theme'
 import PriceCalculator from './price-calculator'
-import config from '../../gatsby-config'
+import site from '../site'
 
-const { price } = config.siteMetadata
+const { price } = site
 
 const renderWithTheme = element =>
   render(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
 
 describe('price calculator', () => {
-  afterEach(cleanup)
-
   describe('participation fee', () => {
     it.skip('applies discounts for children based on age and order', async () => {
       const { getByTestId } = renderWithTheme(
@@ -77,21 +74,24 @@ describe('price calculator', () => {
 
   describe('lunch', () => {
     it('applies discount for children under 13', () => {
+      const DAYS = 14
       const { getByTestId } = renderWithTheme(
-        <PriceCalculator price={price} days={14} />,
+        <PriceCalculator price={price} days={DAYS} />,
       )
       const countField = getByTestId('people-count')
       fireEvent.change(countField, { target: { value: '3' } })
-      fireEvent.click(getByTestId('person-is-child-1'))
+      fireEvent.change(getByTestId('person-is-child-1'), {
+        target: { checked: true },
+      })
       fireEvent.change(getByTestId('person-age-1'), { target: { value: '6' } })
-      fireEvent.click(getByTestId('person-is-child-2'))
+      fireEvent.change(getByTestId('person-is-child-2'), {
+        target: { checked: true },
+      })
       fireEvent.change(getByTestId('person-age-2'), { target: { value: '13' } })
       expect(getByTestId('lunch-total')).toHaveTextContent(
-        `${Math.round(
-          (fromHrkToEur(price.lunch) +
-            fromHrkToEur(price.lunch) +
-            fromHrkToEur(price.discounts.lunch.byAge[0].amount)) *
-            14,
+        `Lunch: ${Math.round(
+          (price.lunch + price.lunch + price.discounts.lunch.byAge[0].amount) *
+            DAYS,
         )} €`,
       )
     })

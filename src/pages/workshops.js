@@ -1,12 +1,13 @@
 // @flow
 import * as React from 'react'
-import styled from 'react-emotion'
-import { graphql, Link as GatsbyLink } from 'gatsby'
-import Layout from '../components/layout'
+import Link from 'next/link'
+import styled from 'styled-components'
 import Container from '../components/container'
 import Text from '../components/text'
 import Alert from '../components/alert'
 import cl from '../utils/cloudinary'
+import site from '../site'
+import workshops from '../data/workshops'
 
 const Grid = styled.div`
   max-width: ${props => props.theme.screenWidth.xxl}px;
@@ -33,7 +34,7 @@ const Item = styled.div`
   }
 `
 
-const Link = styled(GatsbyLink)`
+const Anchor = styled.a`
   display: block;
   flex: 1 1 0%;
 `
@@ -94,42 +95,8 @@ const Leader = styled.div`
   text-align: center;
 `
 
-type Props = {
-  data: {
-    site: {
-      siteMetadata: {
-        areWorkshopsWip: boolean,
-      },
-    },
-    allMarkdownRemark: {
-      edges: Array<{
-        node: {
-          frontmatter: {
-            path: string,
-            title: string,
-            leaders: string[],
-            image: {
-              id: string,
-              width: number,
-              height: number,
-            },
-            cost: ?string,
-          },
-        },
-      }>,
-    },
-  },
-}
-
-const WorkshopsPage = ({
-  data: {
-    site: {
-      siteMetadata: { areWorkshopsWip },
-    },
-    allMarkdownRemark: { edges },
-  },
-}: Props) => (
-  <Layout>
+const WorkshopsPage = () => (
+  <>
     <Container>
       <Text>
         <h1>Workshops</h1>
@@ -140,12 +107,18 @@ const WorkshopsPage = ({
           you're very welcome to propose it! At the end of the camp we will have
           a performance, demonstrating all that we learned.
         </p>
-        <p />
         <p>
-          Most of these workshops are included in the participation fee. Those
-          that cost extra are marked with “€”
+          We're happy to announce that this year we have a new workshop,{' '}
+          <Link href="/workshops/water-activities">
+            <a>water activities</a>
+          </Link>
+          , where you will have an opportunity to learn the basics of
+          windsurfing, kayaking and standup paddleboarding. You will also learn
+          how to tie basic knots needed for sailing, about winds, sea currents
+          and lots more!
         </p>
-        {areWorkshopsWip ? (
+        <p>Workshops are included in the participation fee.</p>
+        {site.areWorkshopsWip ? (
           <Alert type="warning">
             <p>
               We're still working out some details, this list of workshops is
@@ -157,66 +130,43 @@ const WorkshopsPage = ({
     </Container>
 
     <Grid>
-      {edges.map(
-        ({
-          node: {
-            frontmatter: { path, title, leaders, image, cost },
-          },
-        }) => (
+      {workshops
+        .filter(({ active }) => active)
+        .sort((w1, w2) => {
+          if (w1.title < w2.title) {
+            return -1
+          }
+          if (w1.title > w2.title) {
+            return 1
+          }
+          return 0
+        })
+        .map(({ path, title, image, leaders, cost }) => (
           <Item key={path}>
-            <Link to={path}>
-              <Name>{title}</Name>
-              <Image {...image}>
-                {!areWorkshopsWip &&
-                  (leaders.length > 1 ? (
-                    <Leader>
-                      {leaders.slice(0, leaders.length - 1).join(', ')}
-                      {' & '}
-                      {leaders[leaders.length - 1]}
-                    </Leader>
-                  ) : (
-                    <Leader>{leaders[0]}</Leader>
-                  ))}
-                {cost != null && title !== 'Painting' ? (
-                  <ExtraCost>€</ExtraCost>
-                ) : null}
-              </Image>
+            <Link href={path} passHref>
+              <Anchor>
+                <Name>{title}</Name>
+                <Image {...image}>
+                  {!site.areWorkshopsWip &&
+                    (leaders.length > 1 ? (
+                      <Leader>
+                        {leaders.slice(0, leaders.length - 1).join(', ')}
+                        {' & '}
+                        {leaders[leaders.length - 1]}
+                      </Leader>
+                    ) : (
+                      <Leader>{leaders[0]}</Leader>
+                    ))}
+                  {cost != null && title !== 'Painting' ? (
+                    <ExtraCost>€</ExtraCost>
+                  ) : null}
+                </Image>
+              </Anchor>
             </Link>
           </Item>
-        ),
-      )}
+        ))}
     </Grid>
-  </Layout>
+  </>
 )
-
-export const query = graphql`
-  query WorkshopsPageQuery {
-    site {
-      siteMetadata {
-        areWorkshopsWip
-      }
-    }
-    allMarkdownRemark(
-      filter: { frontmatter: { active: { eq: true } } }
-      sort: { fields: [frontmatter___title], order: ASC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            path
-            title
-            leaders
-            image {
-              id
-              width
-              height
-            }
-            cost
-          }
-        }
-      }
-    }
-  }
-`
 
 export default WorkshopsPage

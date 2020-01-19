@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import { format } from 'date-fns'
 import { ButtonLink } from './button'
 import * as Icon from './icons'
@@ -16,15 +16,15 @@ type Props = {
   deadline: string,
 }
 
-const RegistrationButton = ({ href, deadline, ...props }: Props) => (
+const RegistrationButton = ({ deadline, ...props }: Props) => (
   <>
-    <ButtonLink href={href} {...props}>
+    <ButtonLink {...props}>
       <Icon.Pen />
       <div>Register for participation</div>
     </ButtonLink>
     <Deadline>
       Accepting registrations until{' '}
-      <strong>{format(new Date(deadline), 'MMMM Do, YYYY')}</strong>
+      <strong>{format(new Date(deadline), 'MMMM do, yyyy')}</strong>
     </Deadline>
   </>
 )

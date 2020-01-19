@@ -1,5 +1,6 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/immutable/dist/immutable.js.flow
+<PROJECT_ROOT>/node_modules/polished/lib/shorthands/position.js.flow
 
 [include]
 
@@ -8,5 +9,6 @@
 [lints]
 
 [options]
+esproposal.optional_chaining=enable
 
 [strict]

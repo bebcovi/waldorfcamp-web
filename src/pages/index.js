@@ -1,89 +1,40 @@
 // @flow
 import * as React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layout'
 import Hero from '../components/hero'
-import SectionWhen from '../sections/home/when'
-import SectionAbout from '../sections/home/about'
-import SectionLocation from '../sections/home/location'
-// import SectionWorkshops from '../sections/home/workshops'
-import SectionNationalEvenings from '../sections/home/national-evenings'
-import SectionTransfer from '../sections/home/transfer'
-import SectionRegistration from '../sections/home/registration'
+import SectionWhen from '../components/sections/home/when'
+import SectionAbout from '../components/sections/home/about'
+import SectionLocation from '../components/sections/home/location'
+// import SectionWorkshops from '../components/sections/home/workshops'
+import SectionTransfer from '../components/sections/home/transfer'
+import SectionRegistration from '../components/sections/home/registration'
+import site from '../site'
 
-type Props = {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string,
-        tagline: string,
-        registrations: {
-          accepting: boolean,
-          deadline: string,
-        },
-        startDate: string,
-        durationInDays: number,
-        email: string,
-        links: {
-          register: string,
-          newsletter: string,
-        },
-      },
-    },
-  },
-}
-
-const HomePage = ({ data }: Props) => {
-  const {
-    title,
-    tagline,
-    registrations,
-    startDate,
-    durationInDays,
-    email,
-    links,
-  } = data.site.siteMetadata
+const HomePage = () => {
   return (
-    <Layout>
+    <>
       <Hero
-        title={title}
-        subTitle={tagline}
-        links={links}
-        deadline={registrations.deadline}
+        title={site.title}
+        subTitle={site.tagline}
+        links={site.links}
+        deadline={site.registrations.deadline}
       />
       <main>
-        <SectionWhen startDate={startDate} durationInDays={durationInDays} />
+        <SectionWhen
+          startDate={site.startDate}
+          durationInDays={site.durationInDays}
+        />
         <SectionAbout />
         <SectionLocation />
         {/* <SectionWorkshops /> */}
-        <SectionNationalEvenings />
         <SectionTransfer />
-        <SectionRegistration {...registrations} email={email} links={links} />
+        <SectionRegistration
+          {...site.registrations}
+          email={site.email}
+          links={site.links}
+        />
       </main>
-    </Layout>
+    </>
   )
 }
-
-export const query = graphql`
-  query HomePageQuery {
-    site {
-      siteMetadata {
-        title
-        tagline
-        registrations {
-          accepting
-          deadline
-        }
-        startDate
-        durationInDays
-        email
-        links {
-          register
-          newsletter
-        }
-      }
-    }
-  }
-`
 
 export default HomePage

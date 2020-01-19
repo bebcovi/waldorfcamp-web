@@ -1,7 +1,9 @@
 // @flow
 import * as React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
-import styled from 'react-emotion'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import styled from 'styled-components'
+import classNames from 'classnames'
 import Container from './container'
 import * as Icon from './icons'
 import { z, EL } from '../utils/z'
@@ -32,7 +34,7 @@ const Inner = styled.div`
   margin: 0 -1rem;
 `
 
-const A = styled.a`
+const Anchor = styled.a`
   position: relative;
   height: ${HEIGHT};
   display: flex;
@@ -41,6 +43,9 @@ const A = styled.a`
   cursor: pointer;
   color: #fff;
   border: 0.2rem solid transparent;
+  &:hover {
+    color: #fff;
+  }
   &.active {
     color: #fff;
     border-bottom-color: #fff;
@@ -56,8 +61,7 @@ const A = styled.a`
     }
   }
 `
-const Link = A.withComponent(GatsbyLink)
-const HomeLink = styled(Link)`
+const HomeAnchor = styled(Anchor)`
   ${props => props.theme.mqMax[BREAKPOINT]} {
     display: none;
   }
@@ -73,25 +77,36 @@ type Props = {
   links: NavigationLinks,
 }
 
-const Navigation = ({ links }: Props) => (
-  <Nav>
-    <Container>
-      <Inner>
-        <HomeLink to="/">
-          <Icon.Home />
-        </HomeLink>
-        <List>
-          {links.map(({ name, path }) => (
-            <li key={name}>
-              <Link to={path} exact="true" activeClassName="active">
-                {name}
-              </Link>
-            </li>
-          ))}
-        </List>
-      </Inner>
-    </Container>
-  </Nav>
-)
+const Navigation = ({ links }: Props) => {
+  const router = useRouter()
+  return (
+    <Nav>
+      <Container>
+        <Inner>
+          <Link href="/" passHref>
+            <HomeAnchor>
+              <Icon.Home />
+            </HomeAnchor>
+          </Link>
+          <List>
+            {links.map(({ name, path }) => (
+              <li key={name}>
+                <Link href={path} passHref>
+                  <Anchor
+                    className={classNames({
+                      active: router.pathname === path,
+                    })}
+                  >
+                    {name}
+                  </Anchor>
+                </Link>
+              </li>
+            ))}
+          </List>
+        </Inner>
+      </Container>
+    </Nav>
+  )
+}
 
 export default Navigation

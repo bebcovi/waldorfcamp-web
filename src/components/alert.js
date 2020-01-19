@@ -1,14 +1,14 @@
 // @flow
 import React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import { tint, shade } from 'polished'
 
 const Container = styled.div`
   margin: 1rem 0;
   padding: 1rem;
-  background: ${props => tint(0.85, props.theme.colors[props.type])};
+  background: ${props => tint(0.15, props.theme.colors[props.type])};
   border-left: 0.25rem solid ${props => props.theme.colors[props.type]};
-  color: ${props => shade(0.2, props.theme.colors[props.type])};
+  color: ${props => shade(0.8, props.theme.colors[props.type])};
 
   > *:last-child {
     margin-bottom: 0;

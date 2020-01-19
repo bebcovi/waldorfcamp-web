@@ -1,5 +1,5 @@
 // @flow
-import styled, { css } from 'react-emotion'
+import styled, { css } from 'styled-components'
 
 const Text = styled.div`
   h1 {

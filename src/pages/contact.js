@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react'
-import { graphql } from 'gatsby'
-import styled from 'react-emotion'
-import Layout from '../components/layout'
+import styled from 'styled-components'
 import Container from '../components/container'
 import Text from '../components/text'
+import * as Icon from '../components/icons'
+import site from '../site'
 
 const Profile = styled.div`
   display: flex;
@@ -31,6 +31,14 @@ const Name = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
 `
+const Apps = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  > * + * {
+    margin-left: 0.5rem;
+  }
+`
 const PhoneNumber = styled.a`
   display: inline-block;
   color: inherit;
@@ -43,54 +51,37 @@ const PhoneNumber = styled.a`
   }
 `
 
-type Props = {
-  data: {
-    site: {
-      siteMetadata: {
-        email: string,
-      },
-    },
-  },
-}
-
-const ContactPage = ({ data }: Props) => {
-  const { email } = data.site.siteMetadata
+const ContactPage = () => {
   return (
-    <Layout>
+    <>
       <Container>
         <Text>
           <h1>Contact</h1>
           <p>
             Planning a family vacation is a big deal, so we're to help with any
             questions you might have. You can contact us by sending an email to{' '}
-            <a href={`mailto:${email}`}>{email}</a>.
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
           </p>
         </Text>
         <Profile>
           <Photo
             src="https://res.cloudinary.com/waldorf-camp-hr/image/upload/c_fill,g_face,h_426,w_706/v1552854643/37936605_1954214804600660_8206543760796942336_n_qeotfj.jpg"
-            alt="Helena Ivetić"
+            alt="Emir Češo"
           />
           <Info>
             <Name>Emir Češo</Name>
             <PhoneNumber href="tel:‭+385 91 5688 472‬">
               ‭+385 91 5688 472‬
             </PhoneNumber>
+            <Apps>
+              <Icon.WhatsApp />
+              <Icon.Viber />
+            </Apps>
           </Info>
         </Profile>
       </Container>
-    </Layout>
+    </>
   )
 }
-
-export const query = graphql`
-  query ContactPageQuery {
-    site {
-      siteMetadata {
-        email
-      }
-    }
-  }
-`
 
 export default ContactPage

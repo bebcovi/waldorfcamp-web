@@ -3,8 +3,8 @@
   font-weight: 300;
   font-style: normal;
   src:
-    url(../fonts/WaldorfSLO/WaldorfSLOthin.woff2) format('woff2'),
-    url(../fonts/WaldorfSLO/WaldorfSLOthin.woff) format('woff');
+    url(/fonts/WaldorfSLO/WaldorfSLOthin.woff2) format('woff2'),
+    url(/fonts/WaldorfSLO/WaldorfSLOthin.woff) format('woff');
 }
 
 @font-face {
@@ -12,8 +12,8 @@
   font-weight: normal;
   font-style: normal;
   src:
-    url(../fonts/WaldorfSLO/WaldorfSLO.woff2) format('woff2'),
-    url(../fonts/WaldorfSLO/WaldorfSLO.woff) format('woff');
+    url(/fonts/WaldorfSLO/WaldorfSLO.woff2) format('woff2'),
+    url(/fonts/WaldorfSLO/WaldorfSLO.woff) format('woff');
 }
 
 @font-face {
@@ -21,6 +21,6 @@
   font-weight: bold;
   font-style: normal;
   src:
-    url(../fonts/WaldorfSLO/WaldorfSLObold.woff2) format('woff2'),
-    url(../fonts/WaldorfSLO/WaldorfSLObold.woff) format('woff');
+    url(/fonts/WaldorfSLO/WaldorfSLObold.woff2) format('woff2'),
+    url(/fonts/WaldorfSLO/WaldorfSLObold.woff) format('woff');
 }
