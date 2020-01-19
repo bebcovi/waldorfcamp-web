@@ -1,13 +1,12 @@
 // @flow
 import React from 'react'
-import { render, fireEvent } from 'react-testing-library'
-import { ThemeProvider } from 'emotion-theming'
-import { fromHrkToEur } from '../utils/currency'
+import { render, fireEvent } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
 import { theme } from '../theme'
 import PriceCalculator from './price-calculator'
-import config from '../../gatsby-config'
+import site from '../site'
 
-const { price } = config.siteMetadata
+const { price } = site
 
 const renderWithTheme = element =>
   render(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
@@ -91,9 +90,7 @@ describe('price calculator', () => {
       fireEvent.change(getByTestId('person-age-2'), { target: { value: '13' } })
       expect(getByTestId('lunch-total')).toHaveTextContent(
         `Lunch: ${Math.round(
-          (fromHrkToEur(price.lunch) +
-            fromHrkToEur(price.lunch) +
-            fromHrkToEur(price.discounts.lunch.byAge[0].amount)) *
+          (price.lunch + price.lunch + price.discounts.lunch.byAge[0].amount) *
             DAYS,
         )} €`,
       )

@@ -1,18 +1,16 @@
 // @flow
 import * as React from 'react'
-import { graphql } from 'gatsby'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import ordinal from 'ordinal'
-import Layout from '../components/layout'
 import Container from '../components/container'
 import Text from '../components/text'
-import { Button } from '../components/button'
-import Modal from '../components/modal'
-import PriceCalculator from '../components/price-calculator'
-import * as Icon from '../components/icons'
-import { fromHrkToEur } from '../utils/currency'
+// import { Button } from '../components/button'
+// import Modal from '../components/modal'
+// import PriceCalculator from '../components/price-calculator'
+// import * as Icon from '../components/icons'
 import { capitalize } from '../utils/string'
 import type { Price } from '../types'
+import site from '../site'
 
 const Heading = styled.div`
   ${props => props.theme.mq.sm} {
@@ -22,11 +20,11 @@ const Heading = styled.div`
   }
 `
 
-const CalculateButton = styled(Button)`
-  ${props => props.theme.mqMax.sm} {
-    margin-bottom: 1rem;
-  }
-`
+// const CalculateButton = styled(Button)`
+//   ${props => props.theme.mqMax.sm} {
+//     margin-bottom: 1rem;
+//   }
+// `
 
 const Address = styled.address`
   margin: 1rem 0;
@@ -43,63 +41,49 @@ const Spacer = styled.div`
   height: 1rem;
 `
 
-type Props = {
-  data: {
-    site: {
-      siteMetadata: {
-        durationInDays: number,
-        price: Price,
-        links: {
-          register: string,
-        },
-      },
-    },
-  },
-}
-
 type State = {
   calculatorOpen: boolean,
 }
 
-class PricingPage extends React.Component<Props, State> {
-  state = {
-    calculatorOpen: false,
-  }
+class PricingPage extends React.Component<{}, State> {
+  // state = {
+  //   calculatorOpen: false,
+  // }
 
   render() {
-    const { durationInDays, price, links } = this.props.data.site.siteMetadata
-    const { calculatorOpen } = this.state
+    // const { calculatorOpen } = this.state
+    const price: Price = site.price
     const lunchDiscounts: string[] = price.discounts.lunch.byAge.map(
       ({ age, amount }) => {
         let text
         if (age.min === 0) {
           text = `for children up to ${
             age.max
-          } years old the price is ${amount} HRK`
+          } years old the price is ${amount} EUR`
         } else {
           text = `for children aged from ${age.min} to ${
             age.max
-          } the price is ${amount} HRK`
+          } the price is ${amount} EUR`
         }
         return text
       },
     )
     return (
-      <Layout>
+      <>
         <Container>
-          <Modal
+          {/* <Modal
             isOpen={calculatorOpen}
             title="Calculate Your Cost"
             onRequestClose={() => {
               this.setState({ calculatorOpen: false })
             }}
           >
-            <PriceCalculator price={price} days={durationInDays} />
-          </Modal>
+            <PriceCalculator price={price} days={site.durationInDays} />
+          </Modal> */}
           <Text>
             <Heading>
               <h1>Pricing</h1>
-              <CalculateButton
+              {/* <CalculateButton
                 type="button"
                 onClick={() => {
                   this.setState({ calculatorOpen: true })
@@ -107,7 +91,7 @@ class PricingPage extends React.Component<Props, State> {
               >
                 <Icon.Calculator size={24} />
                 <div>Calculate your cost</div>
-              </CalculateButton>
+              </CalculateButton> */}
             </Heading>
             <h2>Participation Fee</h2>
             <p>
@@ -150,6 +134,7 @@ class PricingPage extends React.Component<Props, State> {
                   )
                 },
               )}
+              <li>etc.</li>
             </ol>
             <p>
               In cases where multiple discounts are applicable to the same
@@ -158,9 +143,9 @@ class PricingPage extends React.Component<Props, State> {
               50% instead of 20%.
             </p>
             <p>
-              Before payment you need to <a href={links.register}>register</a>,
-              afterwards you can pay the participation fee to Kvija's bank
-              account:
+              Before payment you need to{' '}
+              <a href={site.links.register}>register</a>, afterwards you can pay
+              the participation fee to Kvija's bank account:
             </p>
             <Address>
               <div>
@@ -203,9 +188,8 @@ class PricingPage extends React.Component<Props, State> {
                 Lunch is obligatory and is organized in the main Olib’s
                 restaurant called “Gostionica Olib” wich is also our meeting
                 point. The price for lunch will be{' '}
-                <strong>{price.lunch} HRK</strong> (approximately{' '}
-                <strong>{fromHrkToEur(price.lunch)} €</strong>) including soup,
-                main dish, salad and dessert.{' '}
+                <strong>{price.lunch} EUR</strong> including soup, main dish,
+                salad and dessert.{' '}
               </>
               {lunchDiscounts.length > 1 ? (
                 <>Children have the following discounts:</>
@@ -223,55 +207,9 @@ class PricingPage extends React.Component<Props, State> {
           </Text>
           <Spacer />
         </Container>
-      </Layout>
+      </>
     )
   }
 }
-
-export const query = graphql`
-  query PricingPageQuery {
-    site {
-      siteMetadata {
-        durationInDays
-        price {
-          participationFee
-          accommodation {
-            min
-            max
-          }
-          touristTax
-          lunch
-          discounts {
-            participationFee {
-              byAge {
-                age {
-                  min
-                  max
-                }
-                discount
-              }
-              byOrder {
-                order
-                discount
-              }
-            }
-            lunch {
-              byAge {
-                age {
-                  min
-                  max
-                }
-                amount
-              }
-            }
-          }
-        }
-        links {
-          register
-        }
-      }
-    }
-  }
-`
 
 export default PricingPage

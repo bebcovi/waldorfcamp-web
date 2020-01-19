@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from 'styled-components'
 import RegistrationButton from './registration-button'
 import { z, EL } from '../utils/z'
 import cl from '../utils/cloudinary'
-import { BG_COLOR } from '../sections/home/when'
+import { BG_COLOR } from './sections/home/when'
 
 const Container = styled.header`
   position: relative;

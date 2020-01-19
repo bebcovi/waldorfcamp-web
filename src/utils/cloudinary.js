@@ -1,7 +1,10 @@
-import cloudinary from 'cloudinary-core'
+import { Cloudinary } from 'cloudinary-core'
 
-const cl = cloudinary.Cloudinary.new()
-cl.config('cloud_name', 'waldorf-camp-hr')
-cl.config('secure', true)
+export const CLOUD_NAME = 'waldorf-camp-hr'
+
+const cl = new Cloudinary({
+  cloud_name: CLOUD_NAME,
+  secure: true,
+})
 
 export default cl

@@ -1,4 +1,4 @@
-import { css } from 'react-emotion'
+import { css } from 'styled-components'
 
 const BASE_FONT_FAMILY =
   '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'

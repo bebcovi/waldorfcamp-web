@@ -1,5 +1,5 @@
 // @flow
-import styled from 'react-emotion'
+import styled from 'styled-components'
 
 const Container = styled.div`
   position: relative;

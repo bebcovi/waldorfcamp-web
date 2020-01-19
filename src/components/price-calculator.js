@@ -1,12 +1,11 @@
 // @flow
 import * as React from 'react'
-import styled, { css } from 'react-emotion'
+import styled, { css } from 'styled-components'
 import { shade, transparentize } from 'polished'
 import { updateIn, setIn, removeIn } from 'immutable'
 import { range } from 'lodash'
 import uuid from 'uuid'
 import * as Icon from './icons'
-import { fromHrkToEur } from '../utils/currency'
 import type { Price } from '../types'
 
 const MAX_NUMBER_OF_PEOPLE = 25
@@ -204,16 +203,16 @@ class PriceCalculator extends React.Component<Props, State> {
 
     const lunch =
       people.reduce((total, { isChild, age }) => {
-        let amountHrk
+        let amount
         if (isChild) {
-          const { amount } = price.discounts.lunch.byAge.find(
-            discount => age >= discount.age.min && age <= discount.age.max,
-          ) || { amount: price.lunch }
-          amountHrk = amount
+          amount =
+            price.discounts.lunch.byAge.find(
+              discount => age >= discount.age.min && age <= discount.age.max,
+            )?.amount || price.lunch
         } else {
-          amountHrk = price.lunch
+          amount = price.lunch
         }
-        return total + fromHrkToEur(amountHrk)
+        return total + amount
       }, 0) * days
 
     const totalBase = participationFee + touristTax + lunch

@@ -1,0 +1,61 @@
+import * as React from 'react'
+import App from 'next/app'
+import Helmet from 'react-helmet'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
+import { theme } from '../theme'
+import { TrackingCode } from '../components/tracking-code'
+import site from '../site'
+import '../styles/fonts.css'
+import '../styles/reboot.css'
+import '../styles/minireset.css'
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 16px;
+    line-height: 1.6;
+    ${theme.mq.sm} {
+      font-size: 18px;
+    }
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+`
+
+const Spacer = styled.div`
+  height: calc(${NAV_HEIGHT} + 0.25rem);
+`
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return (
+      <ThemeProvider theme={theme}>
+        <>
+          <Helmet>
+            <html lang="en" />
+            <title>{site.title}</title>
+            <meta name="description" content={site.tagline} />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <meta
+              name="google-site-verification"
+              content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
+            />
+          </Helmet>
+          <GlobalStyle />
+          <Navigation links={site.links.navigation} />
+          <Spacer />
+          <Component {...pageProps} />
+          <TrackingCode />
+        </>
+      </ThemeProvider>
+    )
+  }
+}
+
+export default MyApp

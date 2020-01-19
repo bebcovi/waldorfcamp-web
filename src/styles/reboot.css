@@ -158,6 +158,11 @@ a:hover {
   text-decoration: underline;
 }
 
+
+/*
+
+<Link> from Next.js doesn't pass `href` to <a>
+
 a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none;
@@ -172,6 +177,8 @@ a:not([href]):not([tabindex]):focus {
 a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
+
+*/
 
 pre,
 code,
