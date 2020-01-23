@@ -126,6 +126,10 @@ const WorkshopsPage = () => (
             </p>
           </Alert>
         ) : null}
+        <p>
+          For safety reasons we require children to be at least 5 years old to
+          participate in workshops.
+        </p>
       </Text>
     </Container>
 
