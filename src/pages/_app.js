@@ -3,6 +3,7 @@ import App from 'next/app'
 import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
+import Footer from '../components/footer'
 import { theme } from '../theme'
 import { TrackingCode } from '../components/tracking-code'
 import site from '../site'
@@ -24,8 +25,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Spacer = styled.div`
-  height: calc(${NAV_HEIGHT} + 0.25rem);
+const Wrapper = styled.div`
+  min-height: calc(100vh - ${NAV_HEIGHT});
+  display: flex;
+  flex-direction: column;
+`
+
+const Main = styled.main`
+  padding-top: 0.25rem;
+  flex: 1 1 0%;
 `
 
 class MyApp extends App {
@@ -48,9 +56,13 @@ class MyApp extends App {
             />
           </Helmet>
           <GlobalStyle />
-          <Navigation links={site.links.navigation} />
-          <Spacer />
-          <Component {...pageProps} />
+          <Wrapper>
+            <Navigation links={site.links.navigation} />
+            <Main>
+              <Component {...pageProps} />
+            </Main>
+            <Footer />
+          </Wrapper>
           <TrackingCode />
         </>
       </ThemeProvider>

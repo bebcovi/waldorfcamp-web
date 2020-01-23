@@ -2,7 +2,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import classNames from 'classnames'
 import Container from './container'
 import * as Icon from './icons'
@@ -12,6 +12,12 @@ import type { NavigationLinks } from '../types'
 export const HEIGHT = '3rem'
 
 const BREAKPOINT = 'sm'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    padding-top: ${HEIGHT};
+  }
+`
 
 const Nav = styled.nav`
   position: fixed;
@@ -81,6 +87,7 @@ const Navigation = ({ links }: Props) => {
   const router = useRouter()
   return (
     <Nav>
+      <GlobalStyle />
       <Container>
         <Inner>
           <Link href="/" passHref>

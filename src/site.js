@@ -1,4 +1,5 @@
 // @flow
+import * as Icon from './components/icons'
 
 export default {
   title: 'International Waldorf Camp Croatia',
@@ -50,5 +51,18 @@ export default {
     register: 'https://forms.gle/1EY1PkAV9rdqf6NG7',
     ferry: 'https://www.jadrolinija.hr/en',
     catamaran: 'https://www.miatours.hr/en',
+    social: [
+      {
+        name: 'Facebook',
+        url:
+          'https://web.facebook.com/Waldorf-Summer-Camp-Croatia-104320777592935',
+        Icon: Icon.Facebook,
+      },
+      {
+        name: 'Instagram',
+        url: 'https://www.instagram.com/waldorfsummercamp',
+        Icon: Icon.Instagram,
+      },
+    ],
   },
 }
