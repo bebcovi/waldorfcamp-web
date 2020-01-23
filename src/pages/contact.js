@@ -53,7 +53,7 @@ const PhoneNumber = styled.a`
 
 const ContactPage = () => {
   return (
-    <>
+    <main>
       <Container>
         <Text>
           <h1>Contact</h1>
@@ -80,7 +80,7 @@ const ContactPage = () => {
           </Info>
         </Profile>
       </Container>
-    </>
+    </main>
   )
 }
 

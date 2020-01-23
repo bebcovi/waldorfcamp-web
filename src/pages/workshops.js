@@ -96,7 +96,7 @@ const Leader = styled.div`
 `
 
 const WorkshopsPage = () => (
-  <>
+  <main>
     <Container>
       <Text>
         <h1>Workshops</h1>
@@ -166,7 +166,7 @@ const WorkshopsPage = () => (
           </Item>
         ))}
     </Grid>
-  </>
+  </main>
 )
 
 export default WorkshopsPage

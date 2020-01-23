@@ -57,7 +57,7 @@ type Props = {
 
 function GalleryPage({ error }: Props) {
   return (
-    <>
+    <main>
       <Container>
         <Text>
           <h1>Gallery</h1>
@@ -84,7 +84,7 @@ function GalleryPage({ error }: Props) {
           </Item>
         ))}
       </List>
-    </>
+    </main>
   )
 }
 

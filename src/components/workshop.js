@@ -56,7 +56,7 @@ type Props = {
 
 const WorkshopTemplate = ({ title, image, cost, children }: Props) => {
   return (
-    <>
+    <main>
       <Container>
         <Text>
           <Link href="/workshops" passHref>
@@ -74,7 +74,7 @@ const WorkshopTemplate = ({ title, image, cost, children }: Props) => {
           ) : null}
         </Text>
       </Container>
-    </>
+    </main>
   )
 }
 

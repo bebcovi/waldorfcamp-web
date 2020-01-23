@@ -9,7 +9,7 @@ type Props = {
 }
 
 const Error = ({ statusCode }: Props) => (
-  <>
+  <main>
     <Container>
       {statusCode === 404 ? (
         <Text>
@@ -36,7 +36,7 @@ const Error = ({ statusCode }: Props) => (
         </Text>
       )}
     </Container>
-  </>
+  </main>
 )
 
 Error.getInitialProps = ({ res, err }) => {

@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 
-const Main = styled.main`
+const Content = styled.div`
   padding-top: 0.25rem;
   flex: 1 1 0%;
 `
@@ -58,9 +58,9 @@ class MyApp extends App {
           <GlobalStyle />
           <Wrapper>
             <Navigation links={site.links.navigation} />
-            <Main>
+            <Content>
               <Component {...pageProps} />
-            </Main>
+            </Content>
             <Footer />
           </Wrapper>
           <TrackingCode />

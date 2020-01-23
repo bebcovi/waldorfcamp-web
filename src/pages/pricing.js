@@ -69,7 +69,7 @@ class PricingPage extends React.Component<{}, State> {
       },
     )
     return (
-      <>
+      <main>
         <Container>
           {/* <Modal
             isOpen={calculatorOpen}
@@ -207,7 +207,7 @@ class PricingPage extends React.Component<{}, State> {
           </Text>
           <Spacer />
         </Container>
-      </>
+      </main>
     )
   }
 }
