@@ -4,9 +4,8 @@ const smartypants = require('@silvenon/remark-smartypants')
 const env = require('dotenv-safe').config()
 const { PHASE_EXPORT } = require('next/constants')
 
-module.exports = (...args) => {
-  const [phase] = args
-  return withPlugins(
+module.exports = (phase, ...args) =>
+  withPlugins(
     [
       mdx({
         options: {
@@ -21,5 +20,4 @@ module.exports = (...args) => {
       env,
       exportTrailingSlash: phase === PHASE_EXPORT,
     },
-  )(...args)
-}
+  )(phase, ...args)
