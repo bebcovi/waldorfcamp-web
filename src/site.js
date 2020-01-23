@@ -22,10 +22,6 @@ export default {
     lunch: 10,
     discounts: {
       participationFee: {
-        byAge: [
-          { age: { min: 0, max: 4 }, discount: 1.0 },
-          { age: { min: 5, max: 5 }, discount: 0.5 },
-        ],
         byOrder: [
           { order: 1, discount: 0.1 },
           { order: 2, discount: 0.2 },

@@ -96,23 +96,6 @@ class PricingPage extends React.Component<{}, State> {
               families with children have following discounts:
             </p>
             <ol>
-              {price.discounts.participationFee.byAge.map(
-                ({ age, discount }) => {
-                  const suffix =
-                    discount === 1
-                      ? 'do not pay the participation fee'
-                      : `have a ${discount * 100}% discount`
-                  let content
-                  if (age.min === 0) {
-                    content = `children under ${age.max} years old ${suffix}`
-                  } else if (age.min === age.max) {
-                    content = `${age.min}-year-old children ${suffix}`
-                  } else {
-                    content = `children aged from ${age.min} to ${age.max} ${suffix}`
-                  }
-                  return <li key={`${age.min}-${age.max}`}>{content}</li>
-                },
-              )}
               {price.discounts.participationFee.byOrder.map(
                 ({ order, discount }) => {
                   let suffix
