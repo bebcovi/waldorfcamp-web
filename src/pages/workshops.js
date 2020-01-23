@@ -112,7 +112,7 @@ const WorkshopsPage = () => (
           <Link href="/workshops/water-activities">
             <a>water activities</a>
           </Link>
-          , where you will have an opportunity to learn the basics of
+          , where you will have an opportunity to learn the basics of swimming,
           windsurfing, kayaking and standup paddleboarding. You will also learn
           how to tie basic knots needed for sailing, about winds, sea currents
           and lots more!
