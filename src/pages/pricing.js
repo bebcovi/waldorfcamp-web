@@ -57,13 +57,9 @@ class PricingPage extends React.Component<{}, State> {
       ({ age, amount }) => {
         let text
         if (age.min === 0) {
-          text = `for children up to ${
-            age.max
-          } years old the price is ${amount} EUR`
+          text = `for children up to ${age.max} years old the price is ${amount} EUR`
         } else {
-          text = `for children aged from ${age.min} to ${
-            age.max
-          } the price is ${amount} EUR`
+          text = `for children aged from ${age.min} to ${age.max} the price is ${amount} EUR`
         }
         return text
       },
@@ -112,9 +108,7 @@ class PricingPage extends React.Component<{}, State> {
                   } else if (age.min === age.max) {
                     content = `${age.min}-year-old children ${suffix}`
                   } else {
-                    content = `children aged from ${age.min} to ${
-                      age.max
-                    } ${suffix}`
+                    content = `children aged from ${age.min} to ${age.max} ${suffix}`
                   }
                   return <li key={`${age.min}-${age.max}`}>{content}</li>
                 },
