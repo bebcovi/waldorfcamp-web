@@ -1,7 +1,10 @@
 const fs = require('fs-extra')
 const { argv } = require('yargs')
 const chalk = require('chalk')
-require('dotenv-safe').config()
+
+if (!process.env.CI) {
+  require('dotenv-safe').config()
+}
 
 const FILE = `${process.cwd()}/src/data/gallery-images.json`
 

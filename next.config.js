@@ -1,8 +1,11 @@
 const withPlugins = require('next-compose-plugins')
 const mdx = require('@zeit/next-mdx')
 const smartypants = require('@silvenon/remark-smartypants')
-const env = require('dotenv-safe').config()
 const { PHASE_EXPORT } = require('next/constants')
+
+if (!process.env.CI) {
+  require('dotenv-safe').config()
+}
 
 module.exports = (phase, ...args) =>
   withPlugins(
@@ -17,7 +20,9 @@ module.exports = (phase, ...args) =>
       },
     ],
     {
-      env,
+      env: {
+        CLOUDINARY_URL: process.env.CLOUDINARY_URL,
+      },
       exportTrailingSlash: phase === PHASE_EXPORT,
     },
   )(phase, ...args)
