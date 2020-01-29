@@ -25,6 +25,7 @@ const fetchGalleryImages = async () => {
       aspectRatio: r.aspect_ratio,
     }))
     await fs.outputJson(FILE, images, { spaces: 2 })
+    console.log(`\n🖼  ${chalk.green('Images downloaded!')}`)
   } catch (err) {
     console.error(chalk.red(err))
   }
