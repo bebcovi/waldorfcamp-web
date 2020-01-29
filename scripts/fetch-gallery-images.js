@@ -1,7 +1,10 @@
 const fs = require('fs-extra')
 const { argv } = require('yargs')
 const chalk = require('chalk')
-require('dotenv-safe').config()
+
+if (!process.env.CI) {
+  require('dotenv-safe').config()
+}
 
 const FILE = `${process.cwd()}/src/data/gallery-images.json`
 
@@ -22,6 +25,7 @@ const fetchGalleryImages = async () => {
       aspectRatio: r.aspect_ratio,
     }))
     await fs.outputJson(FILE, images, { spaces: 2 })
+    console.log(`\n🖼  ${chalk.green('Images downloaded!')}`)
   } catch (err) {
     console.error(chalk.red(err))
   }
