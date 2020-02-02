@@ -108,8 +108,8 @@ const Transfer = () => (
         <Column>
           <h3>Ferry</h3>
           <p>
-            You can take a ferry from Zadar which will only take about two
-            hours. You may check for ferry schedules at{' '}
+            You can take a ferry from Zadar which will only take about three and
+            a half hours. You may check for ferry schedules at{' '}
             <a href="http://www.jadrolinija.hr/en/ferry-croatia">Jadrolinija</a>{' '}
             to avoid any inconvenience (District of Zadar: Zadar – Premuda/Mali
             Lošinj).
@@ -122,10 +122,11 @@ const Transfer = () => (
             <a href="http://www.miatours.hr/summer-timetable-olib-silba-premuda-zadar-line-9401/">
               Miatours
             </a>{' '}
-            which is faster, but it cannot transfer cars, bikes are allowed with
-            the extra cost 50 HRK (about 6.72 €). On catamaran there is also a
-            baggage limit—one piece of baggage is allowed per person. We
-            recommend buying a ticket for the ferry or catamaran in advance.
+            which is faster and takes about two hours, but it cannot transfer
+            cars, bikes are allowed with the extra cost 50 HRK (about 6.72 €).
+            On catamaran there is also a baggage limit—one piece of baggage is
+            allowed per person. We recommend buying a ticket for the ferry or
+            catamaran in advance.
           </p>
         </Column>
       </Row>
