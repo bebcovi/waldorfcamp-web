@@ -1,5 +1,7 @@
 // @flow
 import * as React from 'react'
+import Head from 'next/head'
+import GoogleAnalytics from '../components/google-analytics'
 import Hero from '../components/hero'
 import SectionWhen from '../components/sections/home/when'
 import SectionAbout from '../components/sections/home/about'
@@ -12,6 +14,9 @@ import site from '../site'
 const HomePage = () => {
   return (
     <>
+      <Head>
+        <GoogleAnalytics />
+      </Head>
       <Hero
         title={site.title}
         subTitle={site.tagline}

@@ -5,7 +5,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
 import Footer from '../components/footer'
 import { theme } from '../theme'
-import { TrackingCode } from '../components/tracking-code'
+import { Gauges } from '../components/gauges'
 import site from '../site'
 import '../styles/fonts.css'
 import '../styles/reboot.css'
@@ -63,7 +63,7 @@ class MyApp extends App {
             </Content>
             <Footer />
           </Wrapper>
-          <TrackingCode />
+          <Gauges />
         </>
       </ThemeProvider>
     )

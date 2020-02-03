@@ -15,7 +15,7 @@ const code = `
   })();
 `
 
-const TrackingCode = () =>
+const Gauges = () =>
   process.env.NODE_ENV === 'production' ? (
     <script
       // eslint-disable-next-line react/no-danger
@@ -25,4 +25,4 @@ const TrackingCode = () =>
     />
   ) : null
 
-export { TrackingCode }
+export { Gauges }
