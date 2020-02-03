@@ -10,6 +10,7 @@
     "fetch-gallery-images": "node scripts/fetch-gallery-images.js",
     "predev": "yarn fetch-gallery-images",
     "dev": "next",
+    "test": "jest",
     "prebuild": "yarn fetch-gallery-images",
     "build": "next build && next export"
   },
