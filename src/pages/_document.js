@@ -1,6 +1,13 @@
 // @flow
 import * as React from 'react'
-import Document, { type DocumentContext } from 'next/document'
+import Document, {
+  // $FlowFixMe: Html export is missing from the libdef
+  Html,
+  Head,
+  Main,
+  NextScript,
+  type DocumentContext,
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
@@ -27,6 +34,18 @@ class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }
 

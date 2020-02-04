@@ -45,7 +45,6 @@ class MyApp extends App {
       <ThemeProvider theme={theme}>
         <>
           <Head>
-            <html lang="en" />
             <title>{site.title}</title>
             <meta name="description" content={site.tagline} />
             <meta
