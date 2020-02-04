@@ -1,3 +1,4 @@
+// @flow
 import { Cloudinary } from 'cloudinary-core'
 
 export const CLOUD_NAME = 'waldorf-camp-hr'

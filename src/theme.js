@@ -1,3 +1,4 @@
+// @flow
 import { css } from 'styled-components'
 
 const BASE_FONT_FAMILY =

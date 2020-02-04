@@ -1,3 +1,5 @@
+// @flow
+
 // z-index
 
 export const EL = {
@@ -18,7 +20,7 @@ const ITEMS = [
   EL.MODAL,
 ]
 
-export function z(item) {
+export function z(item: $Values<typeof EL>) {
   const index = ITEMS.indexOf(item)
   if (index === -1) {
     throw new Error(`"${item}" doesn't exist in the list of z-indices.`)

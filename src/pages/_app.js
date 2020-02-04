@@ -1,3 +1,4 @@
+// @flow
 import * as React from 'react'
 import App from 'next/app'
 import Helmet from 'react-helmet'
