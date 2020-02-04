@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import App from 'next/app'
-import Helmet from 'react-helmet'
+import Head from 'next/head'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
 import Footer from '../components/footer'
@@ -44,7 +44,7 @@ class MyApp extends App {
     return (
       <ThemeProvider theme={theme}>
         <>
-          <Helmet>
+          <Head>
             <html lang="en" />
             <title>{site.title}</title>
             <meta name="description" content={site.tagline} />
@@ -57,7 +57,7 @@ class MyApp extends App {
               content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
             />
             <GoogleAnalytics />
-          </Helmet>
+          </Head>
           <GlobalStyle />
           <Wrapper>
             <Navigation links={site.links.navigation} />
