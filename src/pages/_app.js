@@ -5,6 +5,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Navigation, { HEIGHT as NAV_HEIGHT } from '../components/navigation'
 import Footer from '../components/footer'
 import { theme } from '../theme'
+import GoogleAnalytics from '../components/google-analytics'
 import { Gauges } from '../components/gauges'
 import site from '../site'
 import '../styles/fonts.css'
@@ -54,6 +55,7 @@ class MyApp extends App {
               name="google-site-verification"
               content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
             />
+            <GoogleAnalytics />
           </Helmet>
           <GlobalStyle />
           <Wrapper>
