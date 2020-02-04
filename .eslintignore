@@ -1,3 +1,5 @@
+# Flow libdefs
 flow-typed
-.cache
-public
+# Next.js
+.next
+out
