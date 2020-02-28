@@ -1,5 +1,5 @@
 const withPlugins = require('next-compose-plugins')
-const mdx = require('@zeit/next-mdx')
+const mdx = require('@next/mdx')
 const smartypants = require('@silvenon/remark-smartypants')
 const { PHASE_EXPORT } = require('next/constants')
 
