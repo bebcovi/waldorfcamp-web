@@ -18,7 +18,7 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-flow": "^7.8.3",
     "@mdx-js/mdx": "^1.5.5",
-    "@silvenon/remark-smartypants": "^0.1.0",
+    "@silvenon/remark-smartypants": "^0.1.1",
     "@zeit/next-mdx": "^1.2.0",
     "babel-plugin-date-fns": "^2.0.0",
     "babel-plugin-lodash": "^3.3.2",

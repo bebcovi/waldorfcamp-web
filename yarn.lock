@@ -1303,10 +1303,10 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
-"@silvenon/remark-smartypants@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@silvenon/remark-smartypants/-/remark-smartypants-0.1.0.tgz#0e7b35860971c7a58ce84000a1bea8563eac133d"
-  integrity sha512-dpMjs7fW/P9skFMNUx9KXcHmS3Iqo/CAaWfrRTET6tRwaxoCzoK8fH1GhvF+qLrI45VO93+ktMQ11dkiOKWtCg==
+"@silvenon/remark-smartypants@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@silvenon/remark-smartypants/-/remark-smartypants-0.1.1.tgz#2085de8ca9cf8322a1197e612114e5bed6197e92"
+  integrity sha512-DL2SsoHBWNVWzhvq8ppxsC5JO5nHxuEX3vy0SiNloEwtnm50TCkfzd5VcuYUw0aN8Ydts6ffziVgzCsJEVicag==
   dependencies:
     retext "^7.0.1"
     retext-smartypants "^3.0.3"
