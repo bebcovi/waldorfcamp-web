@@ -1,15 +1,17 @@
 // @flow
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Text from './text'
+import site from '../site'
 
 const TextSection = Text.withComponent('section')
 
 const Section = styled(TextSection)`
   padding: 2rem 0;
 
-  &:first-child {
-    padding-top: 5rem;
-  }
+  ${site.registrations.accepting &&
+    css`
+      padding-top: 5rem;
+    `}
 
   *:last-child {
     margin-bottom: 0;

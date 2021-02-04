@@ -16,7 +16,7 @@ const HomePage = () => {
         title={site.title}
         subTitle={site.tagline}
         links={site.links}
-        deadline={site.registrations.deadline}
+        registrations={site.registrations}
       />
       <main>
         <SectionWhen

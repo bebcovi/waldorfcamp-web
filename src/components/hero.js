@@ -86,16 +86,24 @@ type Props = {
   links: {
     register: string,
   },
-  deadline: string,
+  registrations: {
+    deadline: string,
+    accepting: boolean,
+  },
 }
 
-const Hero = ({ title, subTitle, links, deadline }: Props) => (
+const Hero = ({ title, subTitle, links, registrations }: Props) => (
   <Container>
     <Title>{title}</Title>
     <TagLine>{subTitle}</TagLine>
-    <Center>
-      <BorderedRegistrationButton href={links.register} deadline={deadline} />
-    </Center>
+    {registrations.accepting && (
+      <Center>
+        <BorderedRegistrationButton
+          href={links.register}
+          deadline={registrations.deadline}
+        />
+      </Center>
+    )}
   </Container>
 )
 
