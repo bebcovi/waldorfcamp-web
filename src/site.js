@@ -45,7 +45,7 @@ export default {
       { name: 'Contact', path: '/contact' },
     ],
     newsletter: 'http://eepurl.com/M7N7T',
-    register: 'https://forms.gle/1EY1PkAV9rdqf6NG7',
+    register: 'https://forms.gle/PEpX6UwNKu2G3TEQ9',
     ferry: 'https://www.jadrolinija.hr/en',
     catamaran: 'https://www.miatours.hr/en',
     social: [
