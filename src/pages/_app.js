@@ -55,7 +55,7 @@ class MyApp extends App {
               name="google-site-verification"
               content="Yrlr8TcWuVrSfUteACE6qjOWW9tfeAvXPhuRA8gjQY4"
             />
-            <GoogleAnalytics />
+            {/* <GoogleAnalytics /> */}
           </Head>
           <GlobalStyle />
           <Wrapper>

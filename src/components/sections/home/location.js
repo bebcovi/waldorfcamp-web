@@ -43,7 +43,7 @@ const LocationSection = () => (
         with many kinds of produce including good wine, olives, fish and a very
         good sheep's cheese. There are no cars and the island has a quiet,
         relaxing and friendly atmosphere. There are a few restaurants, a bar, a
-        shop, post office, exchange office and tourist board office. Olib island
+        shop, post office, exchange office and tourist board office. You can bring your own bicycle or you can hire one. Olib island
         is a great place for cycling!
       </P>
     </Container>

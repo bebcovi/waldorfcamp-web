@@ -107,15 +107,6 @@ const WorkshopsPage = () => (
           you're very welcome to propose it! At the end of the camp we will have
           a performance, demonstrating all that we learned.
         </p>
-        <p>
-          We're happy to announce that this year we have a new workshop,{' '}
-          <Link href="/workshops/water-activities">
-            <a>water activities</a>
-          </Link>
-          , where you will have an opportunity to learn the basics of swimming{' '}
-          and standup paddleboarding. You will also learn how to tie basic knots
-          needed for sailing, about winds, sea currents and lots more!
-        </p>
         <p>Workshops are included in the participation fee.</p>
         {site.areWorkshopsWip ? (
           <Alert type="warning">
@@ -128,6 +119,11 @@ const WorkshopsPage = () => (
         <p>
           For safety reasons we require children to be at least 5 years old to
           participate in workshops.
+        </p>
+        <p>
+        We reserve the right to change or modify the content of
+        workshops due to inexpected circumstances which could not have been anticipated or
+        avoided .
         </p>
       </Text>
     </Container>
@@ -150,7 +146,7 @@ const WorkshopsPage = () => (
               <Anchor>
                 <Name>{title}</Name>
                 <Image {...image}>
-                  {!site.areWorkshopsWip &&
+                {/* {!site.areWorkshopsWip &&
                     (leaders.length > 1 ? (
                       <Leader>
                         {leaders.slice(0, leaders.length - 1).join(', ')}
@@ -159,7 +155,7 @@ const WorkshopsPage = () => (
                       </Leader>
                     ) : (
                       <Leader>{leaders[0]}</Leader>
-                    ))}
+                    ))}*/}
                   {cost != null && title !== 'Painting' ? (
                     <ExtraCost>€</ExtraCost>
                   ) : null}

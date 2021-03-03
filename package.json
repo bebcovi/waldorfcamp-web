@@ -20,6 +20,7 @@
     "@mdx-js/loader": "^1.5.7",
     "@next/mdx": "^9.2.2",
     "@silvenon/remark-smartypants": "^0.1.1",
+    "@types/fs-extra": "^9.0.8",
     "babel-plugin-date-fns": "^2.0.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-polished": "^1.1.0",

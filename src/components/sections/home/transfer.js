@@ -124,8 +124,7 @@ const Transfer = () => (
             </a>{' '}
             which is faster and takes about two hours, but it cannot transfer
             cars, bikes are allowed with the extra cost 50 HRK (about 6.72 €).
-            On catamaran there is also a baggage limit—one piece of baggage is
-            allowed per person. We recommend buying a ticket for the ferry or
+            We strongly recommend buying a ticket for the ferry or
             catamaran in advance.
           </p>
         </Column>

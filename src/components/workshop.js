@@ -54,7 +54,7 @@ type Props = {
   children: React.Node,
 }
 
-const WorkshopTemplate = ({ title, image, cost, children }: Props) => {
+const WorkshopTemplate = ({ title, image, cost, image2, image3, image4, children }: Props) => {
   return (
     <main>
       <Container>
@@ -66,6 +66,7 @@ const WorkshopTemplate = ({ title, image, cost, children }: Props) => {
           </Link>
           <h1>{title}</h1>
           <Image {...image} />
+          <Image {...image2} />
           {children}
           {cost != null ? (
             <p>
