@@ -1,0 +1,25 @@
+import Workshop from '../../components/workshop'
+
+export const meta = {
+  title: 'Kite Building',
+  image: {
+    id: 'zmaj_xrvl88',
+    width: 1400,
+    height: 1200,
+  },
+  image2: {
+    id: 'zmaj_4_pe3xoa',
+    width: 1400,
+    height: 1200,
+  },
+  leaders: [
+    'Arne M. Ditlefsen',
+    'Annika Herrestad',
+  ],
+  cost: null,
+  active: true,
+}
+
+Building and flying your own kite is fun and rewarding. A kitemaking workshop will last one to two hours resulting in every participant making a simple kite that will fly. At the end we all go to some windy place and fly our kites. It's a great activity for all ages from 8 to 108.
+
+export default props => <Workshop {...props} {...meta} />

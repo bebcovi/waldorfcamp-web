@@ -1,0 +1,25 @@
+import Workshop from '../../components/workshop'
+
+export const meta = {
+  title: 'Astronomy',
+  image: {
+    id: 'binoculars-3634760_1920_frr599',
+    width: 1400,
+    height: 1200,
+  },
+  image2: {
+    id: 'milky-way-984286_1280_c6zlvr',
+    width: 1400,
+    height: 1200,
+  },
+  leaders: [
+    'Arne M. Ditlefsen',
+    'Annika Herrestad',
+  ],
+  cost: null,
+  active: true,
+}
+
+This workshop is intended to learn more about the Moon, planets, stars, asteroids and comets, etc. We will find a dark spot and explore the night sky using the telescope.
+
+export default props => <Workshop {...props} {...meta} />
