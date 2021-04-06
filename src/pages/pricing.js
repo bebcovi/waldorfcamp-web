@@ -92,8 +92,8 @@ class PricingPage extends React.Component<{}, State> {
             <h2>Participation Fee</h2>
             <p>
               The participation fee for the two weeks is{' '}
-              <strong>{price.participationFee} €</strong> per person, but
-              families with children have following discounts:
+              <strong>{price.participationFee} €</strong> per person(regardless of how long the participant will stay) whose deadline is 15.05.2021 and in that way participant will confirm his arrival, which is the last day for registration.
+              <br></br><br></br>Families with children have following discounts:
             </p>
             <ol>
               {price.discounts.participationFee.byOrder.map(

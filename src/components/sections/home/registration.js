@@ -47,12 +47,13 @@ const Registration = ({ accepting, deadline, email, links }: Props) => (
           </Center>
         </>
       ) : (
-        <p>
-          We're still in the organization phase, we'll let you know when we're
+         <p>
+          {/*We're still in the organization phase, we'll let you know when we're
           ready to receive registrations. You can subscribe to{' '}
           <a href={links.newsletter}>our newsletter</a> if you want to get
-          notified by email.
-        </p>
+          notified by email.*/}
+          Registrations for Waldorf Camp 2021. are closed. Thank you.
+        </p> 
       )}
     </Container>
   </Section>
