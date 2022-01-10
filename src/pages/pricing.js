@@ -89,7 +89,7 @@ class PricingPage extends React.Component<{}, State> {
                 <div>Calculate your cost</div>
               </CalculateButton> */}
             </Heading>
-            <h2>Participation Fee</h2>
+            {/*<h2>Participation Fee</h2>
             <p>
               The participation fee for the two weeks is{' '}
               <strong>{price.participationFee} €</strong> per person(regardless of how long the participant will stay) whose deadline is 15.05.2021 and in that way participant will confirm his arrival, which is the last day for registration.
@@ -180,7 +180,8 @@ class PricingPage extends React.Component<{}, State> {
                   <li key={content}>{content}</li>
                 ))}
               </ol>
-            ) : null}
+            ) : null}*/}
+            <p>The participation fee, accommodation and lunch price and all important information will be soon announced.  </p>
           </Text>
           <Spacer />
         </Container>

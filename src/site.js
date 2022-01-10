@@ -8,7 +8,7 @@ export default {
     accepting: false,
     deadline: '2021-04-01',
   },
-  startDate: '2021-08-01',
+  startDate: '2022-07-31',
   durationInDays: 14,
   email: 'contact@waldorfcamp.net',
   areWorkshopsWip: false,
