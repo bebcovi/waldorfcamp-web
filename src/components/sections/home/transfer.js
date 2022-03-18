@@ -123,7 +123,7 @@ const Transfer = () => (
               Miatours
             </a>{' '}
             which is faster and takes about two hours, but it cannot transfer
-            cars, bikes are allowed with the extra cost 50 HRK (about 6.72 €).
+            cars, bikes are allowed with the extra cost.
             We strongly recommend buying a ticket for the ferry or
             catamaran in advance.
           </p>

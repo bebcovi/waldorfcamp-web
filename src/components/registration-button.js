@@ -22,10 +22,10 @@ const RegistrationButton = ({ deadline, ...props }: Props) => (
       <Icon.Pen />
       <div>Register for participation</div>
     </ButtonLink>
-    {/*<Deadline>
+    {<Deadline>
       Accepting registrations until{' '}
       <strong>{format(new Date(deadline), 'MMMM do, yyyy')}</strong>
-    </Deadline>*/}
+    </Deadline>}
   </>
 )
 
