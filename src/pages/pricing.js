@@ -93,7 +93,7 @@ class PricingPage extends React.Component<{}, State> {
             <p>
               The participation fee for the two weeks is{' '}
               <strong>{price.participationFee} €</strong> per person(regardless of how long the participant will stay) whose deadline is 15.05.2021 and in that way participant will confirm his arrival, which is the last day for registration.
-              <br></br><br></br>Families with children have following discounts:
+              <br></br><br></br>We reserve the right to change or modify conditions(price etc.).<br></br><br></br>Families with children have following discounts:
             </p>
             <ol>
               {price.discounts.participationFee.byOrder.map(

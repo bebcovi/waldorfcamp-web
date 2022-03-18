@@ -76,6 +76,7 @@ const ContactPage = () => {
             <Apps>
               <Icon.WhatsApp />
               <Icon.Viber />
+              <Icon.Telegram />
             </Apps>
           </Info>
         </Profile>
