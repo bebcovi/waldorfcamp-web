@@ -19,7 +19,7 @@ export default {
       max: 20,
     },
     touristTax: 0.8,
-    lunch: 10,
+    lunch: 12,
     discounts: {
       participationFee: {
         byAge: [],
@@ -27,12 +27,10 @@ export default {
           { order: 1, discount: 0.1 },
           { order: 2, discount: 0.2 },
           { order: 3, discount: 0.3 },
-          { order: 4, discount: 0.4 },
-          { order: 5, discount: 0.5 },
         ],
       },
       lunch: {
-        byAge: [{ age: { min: 0, max: 11 }, amount: 7.5 }],
+        byAge: [{ age: { min: 0, max: 4 }, amount: 0 }, { age: { min: 4, max: 8 }, amount: 6.6 }, { age: { min: 8, max: 12 }, amount: 10 }],
       },
     },
   },
