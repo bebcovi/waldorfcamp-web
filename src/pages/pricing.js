@@ -120,8 +120,8 @@ class PricingPage extends React.Component<{}, State> {
               50% instead of 20%.
             </p>
             <p>
-              Before payment you need to{' '}
-              <a href={site.links.register}>register</a>, afterwards you can pay
+              Before payment you need to{/*{' '}
+              <a href={site.links.register}> register</a>*/} register, afterwards you can pay
               the participation fee to Kvija's bank account:
             </p>
             <Address>
