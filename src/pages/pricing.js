@@ -92,7 +92,7 @@ class PricingPage extends React.Component<{}, State> {
             <h2>Participation Fee</h2>
             <p>
               The participation fee for the two weeks is{' '}
-              <strong>{price.participationFee} €</strong> per person(regardless of how long the participant will stay) whose deadline is 15.05.2021 and in that way participant will confirm his arrival, which is the last day for registration.
+              <strong>{price.participationFee} €</strong> per person(regardless of how long the participant will stay) whose deadline is 15.05.2023 and in that way participant will confirm his arrival, which is the last day for registration.
               <br></br><br></br>We reserve the right to change or modify conditions(price etc.).<br></br><br></br>Families with children have following discounts:
             </p>
             <ol>
@@ -120,8 +120,8 @@ class PricingPage extends React.Component<{}, State> {
               50% instead of 20%.
             </p>
             <p>
-              Before payment you need to{/*{' '}
-              <a href={site.links.register}> register</a>*/} register, afterwards you can pay
+              Before payment you need to
+              <a href={site.links.register}> register</a>, afterwards you can pay
               the participation fee to Kvija's bank account:
             </p>
             <Address>
@@ -144,9 +144,9 @@ class PricingPage extends React.Component<{}, State> {
               The accommodation is organized in family apartments on the island.
               We are placed in several houses with bath and kitchen. The price
               per bed depends on the apartment and the number of people staying,
-              so it’s{' '}
+              so it’s cca.{' '}
               <strong>
-                {price.accommodation.min}-{price.accommodation.max} €
+              {/*{' '}{price.accommodation.min}-*/}{price.accommodation.max} €
               </strong>{' '}
               per person per night. The accommodation should be booked by
               organizers in order for you to be regarded as a Waldorf Camp

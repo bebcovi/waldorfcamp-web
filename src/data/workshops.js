@@ -21,7 +21,7 @@ const files = fs
       throw new Error(`${name} needs to export const meta = {}`)
     }
 
-    //run evaluations-2022_1
+    //run evaluations-2023_1
     const meta = eval(`(${match[1]})`)
     
     return {

@@ -5,21 +5,21 @@ export default {
   title: 'International Waldorf Camp Croatia',
   tagline: 'An active and dynamic vacation',
   registrations: {
-    accepting: false,
-    deadline: '2022-05-15',
+    accepting: true,
+    deadline: '2023-05-15',
   },
   startDate: '2023-07-30',
   durationInDays: 14,
   email: 'contact@waldorfcamp.net',
   areWorkshopsWip: false,
   price: {
-    participationFee: 160,
+    participationFee: 170,
     accommodation: {
-      min: 15,
+      min: 18,
       max: 20,
     },
     touristTax: 0.8,
-    lunch: 12,
+    lunch: 15,
     discounts: {
       participationFee: {
         byAge: [],
@@ -30,7 +30,7 @@ export default {
         ],
       },
       lunch: {
-        byAge: [{ age: { min: 0, max: 4 }, amount: 0 }, { age: { min: 4, max: 8 }, amount: 6.6 }, { age: { min: 8, max: 12 }, amount: 10 }],
+        byAge: [{ age: { min: 0, max: 4 }, amount: 0 }, { age: { min: 4, max: 8 }, amount: 10 }, { age: { min: 8, max: 12 }, amount: 13 }],
       },
     },
   },
