@@ -30,7 +30,11 @@ export default {
         ],
       },
       lunch: {
-        byAge: [{ age: { min: 0, max: 4 }, amount: 0 }, { age: { min: 4, max: 8 }, amount: 10 }, { age: { min: 8, max: 12 }, amount: 13 }],
+        byAge: [
+          { age: { min: 0, max: 4 }, amount: 0 },
+          { age: { min: 4, max: 8 }, amount: 10 },
+          { age: { min: 8, max: 12 }, amount: 13 },
+        ],
       },
     },
   },
