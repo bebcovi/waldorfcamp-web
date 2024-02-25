@@ -4,7 +4,7 @@
   "author": "Matija Marohnić <matija.marohnic@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "<=11"
+    "node": ">=10 <17"
   },
   "scripts": {
     "fetch-gallery-images": "node scripts/fetch-gallery-images.js",
