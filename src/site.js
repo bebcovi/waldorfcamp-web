@@ -5,10 +5,10 @@ export default {
   title: 'International Waldorf Camp Croatia',
   tagline: 'An active and dynamic vacation',
   registrations: {
-    accepting: true,
+    accepting: false,
     deadline: '2023-05-15',
   },
-  startDate: '2023-07-30',
+  startDate: null,
   durationInDays: 14,
   email: 'contact@waldorfcamp.net',
   areWorkshopsWip: false,
