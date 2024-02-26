@@ -19,10 +19,12 @@ const HomePage = () => {
         registrations={site.registrations}
       />
       <main>
-        <SectionWhen
-          startDate={site.startDate}
-          durationInDays={site.durationInDays}
-        />
+        {site.startDate && (
+          <SectionWhen
+            startDate={site.startDate}
+            durationInDays={site.durationInDays}
+          />
+        )}
         <SectionAbout />
         <SectionLocation />
         {/* <SectionWorkshops /> */}
