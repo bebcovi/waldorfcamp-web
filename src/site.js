@@ -6,20 +6,20 @@ export default {
   tagline: 'An active and dynamic vacation',
   registrations: {
     accepting: true,
-    deadline: '2023-05-15',
+    deadline: '2024-05-15',
   },
-  startDate: '2023-07-30',
+  startDate: '2024-08-04',
   durationInDays: 14,
   email: 'contact@waldorfcamp.net',
   areWorkshopsWip: false,
   price: {
-    participationFee: 170,
+    participationFee: 190,
     accommodation: {
-      min: 18,
-      max: 20,
+      min: 20,
+      max: 30,
     },
     touristTax: 0.8,
-    lunch: 15,
+    lunch: 16.5,
     discounts: {
       participationFee: {
         byAge: [],
@@ -30,7 +30,7 @@ export default {
         ],
       },
       lunch: {
-        byAge: [{ age: { min: 0, max: 4 }, amount: 0 }, { age: { min: 4, max: 8 }, amount: 10 }, { age: { min: 8, max: 12 }, amount: 13 }],
+        byAge: [{ age: { min: 0, max: 4 }, amount: 0 }, { age: { min: 4, max: 8 }, amount: 11.5 }, { age: { min: 8, max: 12 }, amount: 12.5 }],
       },
     },
   },

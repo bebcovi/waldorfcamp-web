@@ -92,7 +92,7 @@ class PricingPage extends React.Component<{}, State> {
             <h2>Participation Fee</h2>
             <p>
               The participation fee for the two weeks is{' '}
-              <strong>{price.participationFee} €*</strong> per person(regardless of how long the participant will stay) whose deadline is 15.05.2023 and in that way participant will confirm his arrival, which is the last day for registration.
+              <strong>{price.participationFee} €*</strong> per person(regardless of how long the participant will stay) whose deadline is 01.06.2024. and in that way participant will confirm his arrival.
               <br></br><br></br>We reserve the right to change or modify conditions(price etc.).<br></br><br></br>Families with children have following discounts:
             </p>
             <ol>
@@ -146,7 +146,7 @@ class PricingPage extends React.Component<{}, State> {
               per bed depends on the apartment and the number of people staying,
               so it’s cca.{' '}
               <strong>
-              {/*{' '}{price.accommodation.min}-*/}{price.accommodation.max} €*
+              {price.accommodation.min}-{price.accommodation.max} €*
               </strong>{' '}
               per person per night. The accommodation should be booked by
               organizers in order for you to be regarded as a Waldorf Camp
