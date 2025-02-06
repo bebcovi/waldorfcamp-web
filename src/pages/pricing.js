@@ -164,23 +164,23 @@ class PricingPage extends React.Component<{}, State> {
               <>
                 Lunch is obligatory and is organized in the main Olib’s
                 restaurant called “Gostionica Olib” wich is also our meeting
-                point. The price for lunch will be{' '}
+                point. The price for lunch will be{/*{' '}
                 <strong>{price.lunch} EUR*</strong> including soup, main dish,
-                salad and dessert.{' '}
+                salad and dessert.{' '}*/} determined later. 
               </>
-              {lunchDiscounts.length > 1 ? (
-                <>Children have the following discounts:</>
+              {/*{lunchDiscounts.length > 1 ? (
+                <> Children have the following discounts:</>
               ) : (
                 `${capitalize(lunchDiscounts[0] || '')}.`
-              )}
+              )}*/}
             </p>
-            {lunchDiscounts.length > 1 ? (
+            {/*{lunchDiscounts.length > 1 ? (
               <ol>
                 {lunchDiscounts.map(content => (
                   <li key={content}>{content}</li>
                 ))}
               </ol>
-            ) : null}
+            ) : null}*/}
             {/*<p>The participation fee, accommodation and lunch price and all important information will be soon announced.  </p>*/}
             <p>* The participation fee, accommodation and lunch prices may change slightly.  </p>
           </Text>
