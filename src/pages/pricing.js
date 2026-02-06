@@ -92,7 +92,7 @@ class PricingPage extends React.Component<{}, State> {
             <h2>Participation Fee</h2>
             <p>
               The participation fee for the two weeks is{' '}
-              <strong>{price.participationFee} €*</strong> per person(regardless of how long the participant will stay) whose deadline is 01.06.2024. and in that way participant will confirm his arrival.
+              <strong>{price.participationFee} €*</strong> per person(regardless of how long the participant will stay) whose deadline is 31.05.2026. and in that way participant will confirm his arrival.
               <br></br><br></br>We reserve the right to change or modify conditions(price etc.).<br></br><br></br>Families with children have following discounts:
             </p>
             <ol>
@@ -146,7 +146,8 @@ class PricingPage extends React.Component<{}, State> {
               per bed depends on the apartment and the number of people staying,
               so it’s cca.{' '}
               <strong>
-              {price.accommodation.min}-{price.accommodation.max} €*
+              {/*{price.accommodation.min}-{price.accommodation.max} €**/}
+              {price.accommodation.max} €*
               </strong>{' '}
               per person per night. The accommodation should be booked by
               organizers in order for you to be regarded as a Waldorf Camp
@@ -159,6 +160,7 @@ class PricingPage extends React.Component<{}, State> {
               Accommodation needs to be paid directly to the landlord within the
               first two days upon arriving to Olib!
             </p>
+            <p><strong>Guests who book early will have a wider choice of accommodation.</strong></p>
             <h2>Food</h2>
             <p>
               <>
@@ -166,7 +168,7 @@ class PricingPage extends React.Component<{}, State> {
                 restaurant called “Gostionica Olib” wich is also our meeting
                 point. The price for lunch will be{/*{' '}
                 <strong>{price.lunch} EUR*</strong> including soup, main dish,
-                salad and dessert.{' '}*/} determined later. 
+                salad and dessert.{' '}*/} determined soon. 
               </>
               {/*{lunchDiscounts.length > 1 ? (
                 <> Children have the following discounts:</>
@@ -183,6 +185,7 @@ class PricingPage extends React.Component<{}, State> {
             ) : null}*/}
             {/*<p>The participation fee, accommodation and lunch price and all important information will be soon announced.  </p>*/}
             <p>* The participation fee, accommodation and lunch prices may change slightly.  </p>
+            <p>* The full participation fee is paid regardless of the length of stay at the camp.  </p>
           </Text>
           <Spacer />
         </Container>

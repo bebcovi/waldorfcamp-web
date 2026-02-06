@@ -119,8 +119,8 @@ const Transfer = () => (
           <h3>Catamaran</h3>
           <p>
             You can also take the catamaran{' '}
-            <a href="http://www.miatours.hr/summer-timetable-olib-silba-premuda-zadar-line-9401/">
-              Miatours
+            <a href="https://webshop.tp-line.hr/" target='blank_'>
+              TP Line
             </a>{' '}
             which is faster and takes about two hours, but it cannot transfer
             cars, bikes are allowed with the extra cost.

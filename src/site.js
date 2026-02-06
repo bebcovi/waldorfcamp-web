@@ -6,14 +6,14 @@ export default {
   tagline: 'An active and dynamic vacation',
   registrations: {
     accepting: true,
-    deadline: '2025-05-15',
+    deadline: '2026-05-31',
   },
-  startDate: '2025-08-03',
+  startDate: '2026-08-02',
   durationInDays: 14,
   email: 'contact@waldorfcamp.net',
   areWorkshopsWip: false,
   price: {
-    participationFee: 190,
+    participationFee: 200,
     accommodation: {
       min: 20,
       max: 30,
